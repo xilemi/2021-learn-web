@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米官网展示布局</title>
+    <style>
+        .box{
+            width: 100%;
+            height: 825px;
+        }
+        .left{
+            width: 20%;
+            height: 800px;
+            float: left;
+            background-color: chartreuse;
+        }
+        .right{
+            width:80%;
+            height: 800px;
+            float: left;
+            margin-left: -25px;
+        }
+
+        .top{
+            width: 25%;
+            height: 400px;
+            float: left;
+            margin-top: -16px;
+        }
+        .bottom{
+            width: 25%;
+            height: 400px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--最大的盒子-->
+<div class="box">
+<!--    左-->
+    <div class="left">
+
+    </div>
+<!--    右-->
+    <div class="right">
+        <ul type="none">
+<!--            无序列表不要点-->
+<!--            第一层-->
+            <li><div class="top"style="background-color: lavender"></div></li>
+            <li><div class="top" style="background-color: chartreuse"></div></li>
+            <li><div class="top" style="background-color: black"></div></li>
+            <li><div class="top" style="background-color: yellow"></div></li>
+<!--            第二层-->
+            <li><div class="bottom" style="background-color:wheat "></div></li>
+            <li><div class="bottom" style="background-color: brown"></div></li>
+            <li><div class="bottom" style="background-color:pink"></div></li>
+            <li><div class="bottom" style="background-color:blue "></div></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

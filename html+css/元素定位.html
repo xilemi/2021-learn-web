@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素定位</title>
+    <style>
+        /* 
+        静态位置 static  绝对位置absolute 相对位置relative fixed 固定位置
+        fixed固定位置  相对窗口的位置 原位置空间不保留
+        absolute绝对位置 相对于已经定位的父级元素 原位置空间不保留
+        relative相对位置 相对于原位置  原位置空间保留
+         */
+         body{
+             margin: 0;
+         }
+         .box{
+             width: 400px;
+             height: 2000px;
+             background-color: blanchedalmond;
+             left: 100px;
+             top: 100px;
+             position: absolute;
+         }
+         .one{
+             width: 100px;
+             height: 100px;
+             background-color: chartreuse;
+             left: 100px;
+             top:100px;
+             position:relative;
+             line-height:100px;
+             z-index: 999;
+             position: absolute;
+         }
+         .two{
+             width: 200px;
+             height: 200px;
+             background-color: cornflowerblue;
+             left: 200px;
+             top: 200px;
+             position: absolute;
+         }
+         .three{
+             width: 300px;
+             height: 300px;
+             background-color: cornsilk;
+         }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="one">返回顶端</div>
+        <div class="two">2</div>
+        <div class="three">3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雪碧图</title>
+    <style>
+        /* 雪碧图思路，将很多张小图集成在一张图片上，将雪碧图作为背景图显示，用backgroud-position属性来切换显示的位置，减少图片的引用，减少http请求 */
+        .logo{
+            width: 200px;
+            height: 51px;
+            background-image: url(spirite.png);
+            position: absolute;
+            left: 200px;
+        }
+        .qrcode{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 500px;
+            background-image: url(spirite.png);
+            background-position: -278px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo"></div>
+    <div class="qrcode"></div>
+</body>
+</html>

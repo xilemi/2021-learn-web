@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加载图效果</title>
+    <!-- 先画出8个圆，8个圆围城一个圆圈，然后让8个圆按照一定的旋转方向进行缩放 -->
+    <style>
+      .box1,.box2{
+          width: 100px;
+          height: 100px;
+          position: absolute;
+          top: 200px;
+          left: 200px;
+      }
+      .box2{
+          transform: rotate(45deg);
+      }
+      .box1 div,.box2 div{
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          position: absolute;
+          background-color: darkgreen;
+          animation: test 1.5s linear infinite;
+      }
+     .box1 div:nth-child(1),.box2 div:nth-child(1){
+          top: 0;
+          left: 0;
+     }
+     .box2 div:nth-child(1){
+         animation-delay: .1s;
+     }
+     .box1 div:nth-child(2),.box2 div:nth-child(2){
+         top: 0;
+         right: 0;
+     }
+     .box1 div:nth-child(2){
+        animation-delay: .3s;
+     }
+     .box2 div:nth-child(2){
+         animation-delay: .5s;
+     }
+     .box1 div:nth-child(3),.box2 div:nth-child(3){
+         bottom: 0;
+         right: 0;
+     }
+     .box1 div:nth-child(3){
+         animation-delay: .7s;
+     }
+     .box2 div:nth-child(3){
+         animation-delay: .9s;
+     }
+     .box1 div:nth-child(4),.box2 div:nth-child(4){
+         left: 0;
+         bottom: 0;
+     }
+     .box1 div:nth-child(4){
+         animation-delay: 1.1s;
+     }
+     .box2 div:nth-child(4){
+         animation-delay: 1.3s;
+     }
+     @keyframes test {
+         form{
+             transform: scale(1);
+         }
+         50%{
+             transform: scale(0);
+         }
+         to{
+             transform: scale(1);
+         }
+         
+     }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="box2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

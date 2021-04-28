@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2、用户输入一个数字，然后判断这个数字能否被5、6整除的情况 -->
+    <!-- 有四种情况，能被5能被6整除 能被5不能被6 不能被5能被6 不能被5不能被6  -->
+    <script>
+      var num=prompt("请输入一个数：");
+    //   判断是否为整数，如果不是直接输入不能被5整除 不能被6整除 
+      if(num%1==0){
+    //    是整数再来进行四种情况的判断
+         if(num%5==0){
+             if(num%6==0){
+                 document.write("能被5 能被6 整除");
+             }
+             else{
+                 document.write("能被5 不能被6 整除");
+             }
+         }
+         else{
+            if(num%6==0){
+                 document.write("不能被5 能被6 整除");
+             }
+             else{
+                 document.write("不能被5 不能被6 整除");
+             }
+         }
+      }
+      else{
+          document.write("不能被5 不能被6 整除");
+      }
+
+    </script>
+</body>
+</html>

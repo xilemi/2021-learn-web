@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .box{
+            width: 100%;
+            height: 600px;
+        }
+    .left{
+        width: 50%;
+        height: 600px;
+        float: left;
+    }
+    .right{
+        width: 50%;
+        height: 600px;
+        float: left;
+    }
+    .top1{
+        width: 100%;
+        height: 300px;
+        color: white;
+        background-color: yellow;
+    }
+
+     .bottom1{
+        width: 100%;
+        height: 300px;
+        background-color: lavender;
+    }
+
+    </style>
+    <title>盒子布局</title>
+</head>
+<body>
+<div class="box">
+    <div class="left">
+        <div class="top1"></div>
+        <div class="bottom1"></div>
+    </div>
+    <div class="right">
+<!--        color属性和background——color是不同的属性-->
+        <div class="top1" style="background-color: blue">是字体的颜色吗是的</div>
+        <div class="bottom1" style="background-color: brown"></div>
+    </div>
+</div>
+</body>
+</html>

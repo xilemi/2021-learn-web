@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格与表单的套嵌</title>
+</head>
+<body>
+<!--
+form表单与表格的套嵌，两者谁在外层的效果都是一样的
+-->
+<!--<form action="" name="form1" method="post">-->
+    <table border="1" width="600" height="300" cellspacing="0">
+        <form action="" name="form1" method="post">
+        <tr>
+            <td width="120" align="right">用户名：</td>
+            <td><input type="text" value placeholder="请输入用户名"></td>
+        </tr>
+        <tr>
+            <td align="right">密码：</td>
+            <td><input type="password" value placeholder="请输入密码"></td>
+        </tr>
+        <tr>
+            <td align="right">确认密码：</td>
+            <td><input type="password" value placeholder="请再次输入密码"></td>
+        </tr>
+        <tr>
+            <td align="right">验证码：</td>
+            <td><input type="text" value placeholder="请输入验证码"></td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+                <label for="nan"><input type="radio" name="sex" id="nan" checked>男</label>
+                <label for="nv"><input type="radio" name="sex" id="nv">女</label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">年龄：</td>
+            <td><input type="text" value placeholder="请输入年龄"></td>
+        </tr>
+        <tr>
+            <td align="right">爱好：</td>
+            <td><select name="aiHao">
+                <option value="">学习</option>
+                <option value="">篮球</option>
+                <option value="" selected>购物</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">你喜欢的游戏：</td>
+            <td>
+                <input type="checkbox" id="cf"><label for="cf">穿越火线</label>
+                <input type="checkbox" id="lol"><label for="lol">英雄联盟</label>
+                <input type="checkbox" id="wz"><label for="wz">王者荣耀</label>
+                <input type="checkbox" id="nz"><label for="nz">逆战</label>
+                <input type="checkbox" id="xxl"><label for="xxl">开心消消乐</label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">邮箱：</td>
+            <td><input type="email" value placeholder="请输入邮箱"></td>
+        </tr>
+        <tr>
+            <td align="right">邮箱密码：</td>
+            <td><input type="password" value placeholder="请输入邮箱密码"></td>
+        </tr>
+        <tr>
+            <td align="center"><button type="submit">提交</button></td>
+            <td><button type="reset">重置</button></td>
+        </tr>
+        </form>
+    </table>
+
+</body>
+</html>

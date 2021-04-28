@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图效果</title>
+    <style>
+        /* 实现轮播图效果，用动画来实现切换背景来达到轮播图效果，把图片设置为背景图片，在动画里设置切换背图片，若是图片过大，盒子放不下，可用bcakground-size:100% 来达到等比例缩放的效果，是图片完美融合盒子 */
+       .box{
+           width: 1226px;
+           height: 460px;
+           margin: 0 auto;
+           background-image: url(images/41fc2ad85864c19cc37a509ff1fb7685.jpg);
+           background-size: 100%;
+           animation: xiaomi 5s 5;
+           
+       }
+       .box:hover{
+           /* 设置动画播放状态 */
+            animation-play-state: paused;
+       }
+       @keyframes xiaomi {
+           0%{
+               background-image: url(images/175b22f0032803f8bdbd94590c8c6629.webp);
+           }
+           33.3%{
+               background-image: url(images/0136c836539ae94f3e3780d488f3dfb8.webp);
+           }
+           66.7%{
+               background-image: url(images/e554d0fe54c0e6bbc42fd3bf6cdb1570.webp);
+           }
+           100%{ 
+               background-image: url(images/41fc2ad85864c19cc37a509ff1fb7685.jpg);
+           }
+           
+       }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

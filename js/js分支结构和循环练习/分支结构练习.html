@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   /* 首先得输入体重单位kg 身高 单位m 然后计算bmi bmi=体重/身高的平方
+   低于18.5  过轻
+   18.5-24.999 正常
+   25-27.777过重
+   28-31.999肥胖
+   高于32 非常肥胖
+    */
+   var weight=prompt("请输入体重：");
+   var height=prompt("请输入身高：");
+   var bmi=weight/(height*height);
+   if(weight<=300&&height<=2.5){
+    if(bmi<18.5){
+       document.write("过轻   bmi："+bmi);
+   }
+   else if(bmi<25){
+       document.write("正常   bmi:"+bmi);
+   }
+   else if(bmi<28){
+       document.write("过重   bmi:"+bmi);
+   }
+   else if(bmi<32){
+       document.write("肥胖   bmi:"+bmi);
+   }
+   else{
+       document.write("非常肥胖   bmi:"+bmi);
+   }
+   }
+   else{
+       document.write("请输入正常的身高或体重")
+   }
+    </script>
+</body>
+</html>
