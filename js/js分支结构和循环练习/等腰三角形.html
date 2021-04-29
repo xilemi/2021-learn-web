@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    span{
+        visibility: hidden;
+    }
+</style>
+</head>
+<body>
+    <!--输出 
+    *
+   * *
+  * * *
+ * * * *
+* * * * * 
+-->
+ <script>
+     for(var i=1;i<=5;i++){
+        //  首先输出倒直角三角形站位，将星号挤过来
+        for(var j=1;j<=6-i;j++){
+            document.write('<span>*</span>');
+        }
+        for(var k=1;k<=i;k++){
+            document.write(' * ');
+        }
+        document.write("<br/>");
+     }
+     for(var x=1;x<=5;x++){
+         for(var j=1;j<=x;j++){
+            document.write('<span>*</span>')
+         }
+        for(var k=1;k<=6-x;k++){
+            document.write(' * ')
+        }
+        document.write('<br/>')
+     }
+
+ </script>
+</body>
+</html>
