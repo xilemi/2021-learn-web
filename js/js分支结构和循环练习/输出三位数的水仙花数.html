@@ -9,7 +9,8 @@
 <body>
     <!-- 水仙花数 每个数位上的数字的三次方的和等于这个 -->
     <script>
-        // 利用for循环得到三位数
+        
+        document.write("利用for循环得到三位数 i，j，k直接定义为每个数位数字<br/>")
         for(var i=1;i<=9;i++){
             for(var j=0;j<=9;j++){
                 for(var k=0;k<=9;k++){
@@ -20,6 +21,19 @@
                     }
                 }
             }
+        }
+        document.write("通过取余来获取每个数位数字<br/>")
+        for(var i=100;i<1000;i++){
+        //    个位数字
+        var k=i%10;
+        // 十位数字
+        var j=parseInt(i/10)%10;
+        // 百位数字
+        var m=parseInt(i/100);
+        if(i==m*m*m+j*j*j+k*k*k){
+            document.write(i);
+            document.write("<br/>");
+        }
         }
     </script>
 </body>

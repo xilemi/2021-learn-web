@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 定义数组的方式  -->
+    <script>
+        // 字面意思法 直接数组名=[item1,item2,item3];用逗号分隔开，item可以任意内容，字符串需要用引号。
+
+        var arrayName=["11",'111','!'];
+        // 循环输出数组内容
+       /*  for(i=0;i<arrayName.length;i++){
+            console.log(arrayName[i]);
+        } */
+    //   new方法创建数组  数组名= new Array()直接接括号
+        var arrName= new Array(11,78,'!');
+        
+        // 定义数组的长度,如果只是增加数组长度，而不给数组添加元素，那么没有元素的位置是undefined。
+        /* arrName.length=10;
+        for(i=0;i<arrName.length;i++){
+            console.log(arrName[i]);
+        } */
+    //    那如果减少数组的长度呢 ,后面的元素直接消失
+    //    arrName.length=2;
+       console.log(arrName[8]);
+       for(i=0;i<arrName.length;i++){
+            console.log(arrName[i]);
+        }
+    </script>
+</body>
+</html>
