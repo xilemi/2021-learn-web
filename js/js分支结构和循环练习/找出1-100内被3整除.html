@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 计算出1-100之间所有不能被3整除的整数的和;当和大于或等于2000时终止计算;
+ 输出此时的和以及对应的数字. -->
+    <script>
+    var sun=0;
+    for(var i=1;i<=100;i++){
+        if(sun<2000){
+            if(i%3!==0){
+            sun+=i;
+        }
+        }
+        else{
+            // break直接结束循环
+          break;
+        }
+    }
+    console.log("和为:"+sun);
+            console.log("对应数字:"+(i-1));
+    </script>
+</body>
+</html>

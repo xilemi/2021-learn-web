@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 对年份判断闰年，将月份的天数定义成数组，分闰年非闰年。然后对n月就数组n-1个元素进行求和得m天 -->
+    <script>
+        var year=parseInt(prompt("请输入年份:"));
+        var month=parseInt(prompt("请输入月份:"));
+        var day=parseInt(prompt("请输入日:"));
+        var leapYear=[31,29,31,30,31,30,31,31,30,31,30,31];
+        var normalYear=[31,28,31,30,31,30,31,31,30,31,30,31];
+        var m=0;
+        
+        // 创建计算日期的函数
+        var count=function(year,month,day){
+            var monthday=[];//接收平年闰年数组
+            if(year%4==0&&year%100!=0||year%400==0){
+               monthday=leapYear;
+            }
+            else{
+               monthday=normalYear;
+            }
+            // 计算是哪一天
+            for(i=0;i<month-1;i++){
+                m+=monthday[i];
+            }
+            m=m+day;
+            console.log("第"+m+"天");
+    }
+    // 调用函数
+    count(year,month,day);
+    </script>
+</body>
+</html>

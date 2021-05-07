@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 输入月份确定所在的季度 -->
+<script>
+    var month=parseInt(prompt("请输入月份"));
+    if(month<=12&&month>=1){
+        if(month<=3){
+            console.log("第一季度");
+        }
+        else if(month<=6){
+            console.log("第二季度");
+        }
+        else if(month<=9){
+        console.log("第三季度");
+        }
+        else{
+            console.log("第四季度");
+        }
+    }
+    else{
+        console.log("输入合法的数据");
+    }
+</script>
+</body>
+</html>

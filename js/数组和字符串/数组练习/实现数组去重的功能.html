@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 实现一个数组的去重功能，将数组中重复元素只保留一个。并且存入一个新的数组 -->
+    <script>
+        var arr = [2,34,2,5,6,9,8,4,34,67,6];
+        // 思路：将数组中的每一个元素与后面的元素进行比较，有相等的则是重复元素，返回位置，删除。
+        for(var i=0;i<arr.length;i++){
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i]==arr[j]){
+                    arr.splice(i,1);
+                }
+            }
+        }
+        var arr1=arr;
+        console.log(arr1);
+    </script>
+</body>
+</html>
