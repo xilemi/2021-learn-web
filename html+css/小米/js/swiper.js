@@ -2,6 +2,7 @@
 var swiperBtnLeft=document.getElementById("swiper-btn-left");
 var swiperBtnRight=document.getElementById("swiper-btn-right");
 var swiperBox=document.getElementsByClassName("swiper-box")
+console.log(swiperBox);
 var img=document.getElementById("img");
 var swiperPoint=document.querySelectorAll("#swiper-btn-point>ul>li");
 var imgarr=["swiper2.webp","swiper3.webp","swiper4.webp","swiper1.jpg","swiper5.webp"];
