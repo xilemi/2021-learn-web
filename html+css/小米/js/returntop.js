@@ -1,4 +1,4 @@
-// $(".return").hide();
+$(".return").hide();
 $(function(){
     $(window).scroll(function(){       //scroll()实现页面滚动时 执行function函数
         if($(window).scrollTop()>1000){//scrollTop()获取页面距顶部的长度外面套if判断

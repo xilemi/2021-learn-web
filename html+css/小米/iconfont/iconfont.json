@@ -111,6 +111,13 @@
       "unicode_decimal": 59164
     },
     {
+      "icon_id": "11364338",
+      "name": "左箭头",
+      "font_class": "left-arrow",
+      "unicode": "e502",
+      "unicode_decimal": 58626
+    },
+    {
       "icon_id": "14809451",
       "name": "定位",
       "font_class": "location",
@@ -135,8 +142,8 @@
       "icon_id": "16583118",
       "name": "15天无理由退货",
       "font_class": "15",
-      "unicode": "e502",
-      "unicode_decimal": 58626
+      "unicode": "e504",
+      "unicode_decimal": 58628
     },
     {
       "icon_id": "17700591",

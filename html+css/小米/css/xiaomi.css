@@ -164,6 +164,7 @@
     top: 100px;
     overflow: hidden;
     transition:all .5s;
+    z-index: 999;
 }
 /* 中间导航栏下拉框 */
 .nav>ul>li:hover>.nav-list{
@@ -308,17 +309,66 @@
 .swiper{
     width: 100%;
     height: 460px;
-    position: relative;background-color: #fff;
+    position: relative;
+    background-color: #fff;
 }
 .swiper-box{
     width: 100%;
     height: 460px;
-    background-image: url(../images/swiper2.webp);
+    /* background-image: url(../images/swiper2.webp);
     animation: switch-swiper 15s infinite ease;
+    改用js */
     z-index: 888;
 }
-/* 轮播图切换动画实现 */
-@keyframes switch-swiper{
+#swiper-btn-left,#swiper-btn-right{
+    width: 41px;
+    height: 69px;
+    line-height: 69px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: absolute;
+    color: #b0b0b0;
+    top: 50%;
+    margin-top: -34.5px;
+    z-index: 890;
+}
+#swiper-btn-left:hover,#swiper-btn-right:hover{
+    background-color: #717073;
+    color: #fff;
+}
+#swiper-btn-left{
+    left: 573px;
+    font-size: 40px;
+}
+#swiper-btn-right{
+    right: 338px;
+    font-size: 50px;
+}
+#swiper-btn-point{
+    width: 58;
+    height: 10px;
+    position: absolute;
+    right: 368px;
+    bottom: 20px;
+}
+#swiper-btn-point>ul>li{
+    width: 6px;
+    height: 6px;
+    border: 2px solid #fff;
+    margin: 0 4px;
+    border-radius: 50%;
+    float: left;
+    background-color: #b0b0b0;
+}
+#img{
+    width: 1226px;
+    height: 460px;
+    margin: 0 auto;
+    position: absolute;
+    left: 339px;
+}
+/* 轮播图切换动画实现 改用js */
+/* @keyframes switch-swiper{
     0%{
         background-image: url(../images/swiper2.webp);
     }
@@ -332,17 +382,18 @@
         background-image: url(../images/swiper1.jpg);
         background-size: 100%;
     }
-}
-/* 轮播图鼠标悬停停止播放 */
-.swiper-box:hover{
+} */
+/* 轮播图鼠标悬停停止播放 改用js */
+/* .swiper-box:hover{
     animation-play-state: paused;
-}
+} */
 /* 轮播图侧栏 */
 .swiper-nav{
     width: 234px;
     height: 460px;
     position: absolute;
     top: 0;
+    z-index: 900;
 }
 /* 侧栏无序列表 */
 .swiper-nav>ul{

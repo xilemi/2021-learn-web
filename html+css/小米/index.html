@@ -217,11 +217,27 @@
     <div class="swiper">
         <div class="wrap">
             <!-- 轮播图 -->
-            <div class="swiper-box"><a href="#"></a></div>
+            <div class="swiper-box"><a href="#">
+                <img src="images/swiper3.webp" alt="" id="img">
+                <div id="swiper-btn-point">
+                    <ul>
+                        <li onclick="show(0);"></li>
+                        <li onclick="show(1);"></li>
+                        <li onclick="show(2);"></li>
+                        <li onclick="show(3);"></li>
+                        <li onclick="show(4);"></li>
+                    </ul>
+                </div>
+            </a></div>
+            <!-- 轮播图左右按钮 -->
+            <div id="swiper-btn-left" class="iconfont">&#xe502;</div>
+            <div id="swiper-btn-right" class="iconfont">&#xe632;</div>
+            <!-- 轮播图圆圈 -->
+            
             <!-- 轮播图侧栏 -->
             <div class="swiper-nav">
                 <ul>
-                    <li><a href="#">手机 电话卡</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">手机 电话卡</a><span class="iconfont">&#xe632;</span>
                     <div class="swiper-nav-list">
                         <ul>
                             <li><a href="#"><img src="images/ab345272bf9894bb8269d4901344b068.webp" alt="">
@@ -292,7 +308,7 @@
                             </a></li>
                         </ul>
                     </div></li>
-                    <li><a href="#">电视 盒子</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">电视 盒子</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list">
                             <ul>
                                 <li><a href="#"><img src="images/ab345272bf9894bb8269d4901344b068.webp" alt="">
@@ -323,7 +339,7 @@
                                 </a></li>
                             </ul>
                         </div></li>
-                    <li><a href="#">笔记本 显示器</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">笔记本 显示器</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list">
                             <ul>
                                 <li><a href="#"><img src="images/ab345272bf9894bb8269d4901344b068.webp" alt="">
@@ -380,19 +396,19 @@
                                 </a></li>
                             </ul>
                         </div></li>
-                    <li><a href="#">家电 插线板</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">家电 插线板</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
-                    <li><a href="#">出现 穿戴</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">出现 穿戴</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
-                    <li><a href="#">智能 路由器</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">智能 路由器</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
-                    <li><a href="#">电源 配件</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">电源 配件</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
-                    <li><a href="#">健康 儿童</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">健康 儿童</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
-                    <li><a href="#">耳机 音箱</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">耳机 音箱</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
-                    <li><a href="#">生活 箱包</a><span class="iconfont">&#xe621;</span>
+                    <li><a href="#">生活 箱包</a><span class="iconfont">&#xe632;</span>
                         <div class="swiper-nav-list"></div></li>
                 </ul>
             </div>
@@ -1053,8 +1069,10 @@
             <p>回顶部</p>
         </a>
     </div>
-    <script src="js/returntop.js"></script>
+    <!-- 轮播图js -->
+    <script src="js/swiper.js"></script>
     <!-- 返回顶部结束 -->
+    <script src="js/returntop.js"></script>
     <!-- 侧边导航栏结束 -->
 </body>
 </html>
