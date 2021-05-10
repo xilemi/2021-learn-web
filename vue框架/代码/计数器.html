@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="countier">
+        <h2>当前数值:{{countier}}</h2>
+        <button v-on:click='add'>+</button>
+        <button v-on:click='sub'>-</button>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+      var countier=new Vue({
+          el:'#countier',
+          data:{
+              countier:0,
+          },
+          methods:{
+             //给按钮写函数
+             add:function(){
+                 console.log('add被执行');
+                 this.countier++
+             },
+             sub:function(){
+                 console.log('sub被执行');
+                 this.countier--
+             }
+          }
+      })
+
+
+
+    </script>
+</body>
+</html>
