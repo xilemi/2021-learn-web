@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 能够自动识别内容中的html标签，而不是直接作为string类型输出 -->
+    <!-- v-html='需要识别为html的对象名' -->
+    <div id="app" v-html="url"></div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                url:'<a href="https://pan.xilemifan.tk">网盘</a>',
+            }
+        })
+    </script>
+</body>
+</html>

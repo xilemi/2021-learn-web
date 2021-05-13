@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- v-on是监听属性，用于监听操作 -->
+    <div id="app">
+        <p v-on:click='click()'>{{message}}监听鼠标点击</p>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+       const app = new Vue({
+            el:'#app',
+            data:{
+                message:'监听鼠标',
+            },
+            methods:{
+                click:function(){
+                    var p =document.querySelector("p");
+                    p.style.cssText='font-size:89px;'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

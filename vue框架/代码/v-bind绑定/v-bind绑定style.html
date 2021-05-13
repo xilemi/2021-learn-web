@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 内联样式 {}为一个对象 而其中的元素就是style属性  -->
+        <p v-bind:style='{fontSize:"50px",color:"#ef6700"}'>{{firstItem+' '+secondItem}}</p>
+        <!-- 内联样式过于繁琐，那么我们也可以将属性直接封装成对象-->
+        <p v-bind:style='styleTest'>{{firstItem+' '+secondItem}}</p>
+        <!-- 将style属性封装成方法 -->
+        <p v-bind:style='styleMethods()'>{{firstItem+' '+secondItem}}</p>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                firstItem:'你好啊',
+                secondItem:'王瑞',
+                styleTest:{
+                    fontSize:'50px',
+                    color:'#ef6700',
+                }
+            },
+            methods: {
+                styleMethods(){
+                   return {fontSize:'50px',color:'#ef6700'}
+                }
+            },
+        })
+    </script>
+</body>
+</html>
