@@ -41,7 +41,7 @@
                 <button v-on:click='buy(index)'>购买</button>
                 <button v-on:click='reduce(index)'>删除</button>
             </li>
-            <li class="shopCar">
+            <li class="shopCar" >
                 <p>购买总数{{getShopNum}}</p>
                 <p>购买总价{{getTotal}}</p>
             </li>
@@ -70,8 +70,17 @@
                 },
                 reduce:function(index){
                     //缺少商品数量为负数的限制
-                    this.books[index].amount--;
+                    // 等于0时会一直为0，否则的话就自减1
+                    if(this.books[index].amount===0){
+                        this.books[index].amount=0;
+                    }
+                    else{
+                        this.books[index].amount--;
+                    }
                 },
+                getBooksName:function(index){
+                    return this.books[index].name;
+                }
                 
             },
             computed: {
