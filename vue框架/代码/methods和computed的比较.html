@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- methods与computed的比较 -->
+    <div id="app">
+        <!-- 将item1和item2拼接起来 -->
+        <h2 @click='getLog()'>{{item1+' '+item2}}</h2>
+        <!-- 使用methods方式拼接 如果有参数，这里不写实参的，那么直接返回event，如果要单独返回event，那么在实参这里写$event-->
+        <h2 @click='getLog(123,$event)'>{{getItem()}}</h2>
+        <!-- 计算属性不能添加在@click后面，这里应该是js语句，或者是个方法 
+        在其中使用计算属性来将item1和item2连接起来时，无论有多少个地方要使用到，只调用一次，而使用methods方法这用几次调用几次
+        因此更加节省资源，更快。因此在使用循环和多次调用时最好使用计算属性。
+        -->
+        <h2 @click='getLog(123,$event)'>{{getItem()}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+        <h2 @click='getLog(123,$event)'>{{getItem1}}</h2>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                item1:'第一个',
+                item2:'第二个',
+            },
+            methods:{
+                getItem(){
+                    return this.item1+ ' '+this.item2;
+                },
+                getLog(a,$event){
+                    console.log(a,event);
+                }
+            },
+            computed:{
+                getItem1(){
+                    console.log('被调用了');
+                    return this.item1+ ' '+this.item2;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
