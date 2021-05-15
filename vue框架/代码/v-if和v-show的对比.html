@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            background-color: chocolate;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- v-show的使用 ，同样也是通过判断值的true和false -->
+    <div id="app">
+        <h2 v-show='isShow' class="text">这是使用v-show</h2>
+        <button @click='isShow=!isShow'>切换显示</button>
+    </div>
+    <!-- v-show和v-if的区别是,前者是添加display none属性，元素是渲染了，而v-if如果是false时直接把元素删除了 -->
+    <script  src="../vue/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                isShow:true,
+            }
+        })
+    </script>
+</body>
+</html>

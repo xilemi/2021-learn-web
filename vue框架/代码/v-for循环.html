@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-for循环并向数组中插入元素 -->
+    <!-- 加入key的效率更高 就不会从插入的位置开始替换元素 -->
+    <div id="app">
+        <ul>
+            <li v-for='(item,index,key) in books':key="item">{{item}}</li>
+        </ul>
+    </div>
+    <script src="../vue/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    books:["ubuntu","centos",'linux',"win",'macos'],
+                },
+            })
+        </script>
+</body>
+</html>

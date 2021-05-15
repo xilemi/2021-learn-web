@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <!-- v-on的修饰符使用，当有些事件只允许被执行一次，例如鼠标点击按钮只能被点击一次，不能被点击，另外子元素点击，父元素也是会生效的，这就是子元素冒泡，那么可以阻止吗？可以的 -->
+    <div id="app" @click='test0()' class="box">
+        <!-- 此时子元素父元素都有点击事件 点击子元素时，父元素也会被点击，这是子元素冒泡 那么给子元素监听属性添加.stop属性例如v-on:click.stop-->
+        <button @click.stop='test1'>按钮阻止子元素冒泡</button>
+        <!-- .prevent属性阻止事件的默认行为 此时页面不会重载 -->
+        <!-- 加载网站为默认事件 -->
+        <form action="http://pan.xilemifan.tk">
+            <button @click.prevent='test1'>阻止默认事件</button>
+        </form>
+        <button @click.once='test1'>按钮只能被点击一次</button>
+        <!-- .passive 即滚动事件立即触发 -->
+        <button @scroll.passive='test1'>滚动就立即触发</button>
+        <!-- 按键的修饰符 键盘点击某个键生效 例如 enter space esc  -->
+        <button @keyuop.enter='test1'>监听键盘enter</button>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+       const app = new Vue({
+           el:'#app',
+           methods: {
+               test0(){
+                  console.log('我是父元素');
+               },
+               test1(){
+                   console.log('我是子元素');
+               }
+           },
+       })
+    </script>
+</body>
+</html>
