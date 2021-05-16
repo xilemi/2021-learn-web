@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="goods">
+        <table>
+            <caption>商品列表</caption>
+            <tr>
+                <th>书号</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+                <th>出版时间</th>
+                <th>添加购物车</th>
+            </tr>
+            <tr v-for='(item,index) in books'>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.price|priceFilter}}</td>
+                <td>{{item.date}}</td>
+                <td><button @click='addGoods(index)'>添加</button></td>
+            </tr>
+        </table>
+    </div>
+    <!-- 尽量把id写在最外层 -->
+    <div id="shopcar">  
+        <table  v-if='car.length>0'>
+            <caption>购物车</caption>
+            <tr>
+                <th>书号</th>
+                <th>书名</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>删除</th>
+            </tr>
+            <tr v-for='(book,index) in car'>
+                <td>{{book.id}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.price}}</td>
+                <td><button @click='decrease(index)'>-</button> {{book.count}} <button @click='increase(index)'>+</button></td>
+                <td><button @click='removeCar(index)'>删除</button></td>
+            </tr>
+            <tr>
+                <td colspan="5">总价{{totalPrice|priceFilter}}</td>
+            </tr>
+        </table>    
+        <table v-else>
+            <caption>购物车为空</caption>
+        </table>
+    </div>
+    <script src="/vue框架/vue/vue.js"></script>
+    <script src="js/goods.js"></script>
+    <script src="js/shopcar.js"></script>
+</body>
+</html>
