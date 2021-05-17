@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue组件化使得界面更好的复用
+    使用步骤：
+    1，创建组件构造器
+     const cPnC = new Vue.extend()
+    2,注册组件
+    Vue.component(mycpnC,cPnC) 前面为构造器取名 后面构造器对象
+    3实例范围内使用 构造器取名为标签名
+    具体使用 -->
+    <div id="app">
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+            
+        // 注册组件
+        Vue.component('my-cpn',{
+            template:'<div><h2>这是第一个组件化</h2><p>组件化能够更好的复用</p><p>简化代码</p></div>'
+        });
+        const app = new Vue({
+            el:'#app',
+        })
+    </script>
+</body>
+</html>
