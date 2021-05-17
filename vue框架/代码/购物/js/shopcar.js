@@ -22,13 +22,19 @@ const shopcar= new Vue({
       
     },
     computed:{
-        totalPrice(){
+        /* totalPrice(){
             let total =0;
             for(let i=0;i<this.car.length;i++){
                 total+=this.car[i].price*this.car[i].count;
             }
             return total;
-    },
+    }, */
+    totalPrice(){
+        return this.car.reduce(function(preValue,b){
+          return preValue+b.price*b.count;
+        },0)
+        }
+        
     },
     filters:{
         priceFilter(price){

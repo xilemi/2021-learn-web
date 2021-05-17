@@ -35,7 +35,7 @@
             <li v-for='(item,index) in books' class="goods">
                 <p>书本编号:{{item.id}}</p>
                 <p>书本名字:{{item.name}}</p>
-                <p>书本价格:{{item.price}}</p>
+                <p>书本价格:{{item.price|showPrice}}</p>
                 <p>编号:{{index}}</p>
                 <p>书本数量:{{getAmount(index)}}</p>
                 <button v-on:click='buy(index)'>购买</button>
@@ -43,7 +43,7 @@
             </li>
             <li class="shopCar" >
                 <p>购买总数{{getShopNum}}</p>
-                <p>购买总价{{getTotal}}</p>
+                <p>购买总价{{getTotal|showPrice}}</p>
             </li>
         </ul>
         
@@ -84,21 +84,36 @@
                 
             },
             computed: {
-                getShopNum:function(){
+                /* getShopNum:function(){
                     let totalNum=0;
                     for(var i=0;i<this.books.length;i++){
                         totalNum+=this.books[i].amount;
                     }
                     return totalNum;
+                }, */
+                getShopNum(){
+                    return this.books.reduce(function(preValue,book){
+                        return preValue+book.amount;
+                    },0)
                 },
 
-                getTotal:function(){
+                /* getTotal:function(){
                     let totalPrice=0;
                    for(var i=0;i<this.books.length;i++){
                        totalPrice+=this.books[i].amount*this.books[i].price;
                 }    
                 return totalPrice;
-            },
+            }, */
+            getTotal(){
+                return this.books.reduce(function(preValue,book){
+                       return preValue+book.price*book.amount;
+                },0)
+            }
+        },
+        filters:{
+            showPrice(price){
+                return '￥' +price.toFixed(2);
+            }
         }
          })
     </script>
