@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .circle{
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+          border-radius: 50%;
+          position: relative;
+          left: 50px;
+          top: 50px;
+      }
+    </style>
+</head>
+<body>
+    <div class="circle" id="ball"></div>
+    <script>
+        var ball = document.getElementById('ball');
+
+        // 定义abcd四个方向
+        var a = false;//左
+        var b = false;//上
+        var c = false;//右
+        var d = false;//下
+
+        // 定义水平方向和垂直方向上的坐标
+        var x = 50;
+        var y = 50;
+
+        // 运动速度
+        var speed = 5;
+
+        var time = null;
+        time = setInterval(function(){
+            if(a){
+                x -= speed;
+            }
+            if(b){
+                y -= speed;
+            }
+            if(c){
+                x += speed;
+            }
+            if(d){
+                y += speed;
+            }
+            // 设置x和y的临界值
+            var maxX = document.documentElement.clientWidth - ball.offsetWidth;
+            var maxY = document.documentElement.clientHeight - ball.offsetHeight;
+            if(x >= maxX){
+                x = maxX;
+            }
+            if(x <= 0){
+                x = 0;
+            }
+            if(y >= maxY){
+                y =maxY;
+            }
+            if(y <= 0){
+                y =0;
+            }
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+        },10);
+
+        document.onkeydown = function(e){
+            var e = e || window.event;
+            if(e.keyCode == 37||e.keyCode==65){
+                a = true;
+            }
+            if(e.keyCode == 38||e.keyCode==87){
+                b = true;
+            }
+            if(e.keyCode == 39||e.keyCode==68){
+                c = true;
+            }
+            if(e.keyCode == 40||e.keyCode==83){
+                d = true;
+            }
+        }
+        document.onkeyup = function(e){
+            var e = e || window.event;
+            if(e.keyCode == 37||e.keyCode==65){
+                a = false;
+            }
+            if(e.keyCode == 38||e.keyCode==87){
+                b = false;
+            }
+            if(e.keyCode == 39||e.keyCode==68){
+                c = false;
+            }
+            if(e.keyCode == 40||e.keyCode==83){
+                d = false;
+            }
+        }
+    </script>
+</body>
+</html>
