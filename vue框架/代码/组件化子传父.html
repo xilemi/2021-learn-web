@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .app{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <!-- 子组件向父组件传输数据 -->
+    <div id="app" class="app">
+         <cpn1 @myevent='child' @myevent1='change'></cpn1>
+         <child v-show="isShow"></child> 
+    </div>
+    <template id="cpn1">
+        <div>
+            <span>我是导航栏</span>
+            <button @click='handclick'>按钮</button>
+            <!-- 点击上面按钮执行cpn1中的handclick 这个方法中的分发，能够关联 cpn1标签的事件 从而触发事件的方法-->
+        </div>
+    </template>
+    <template id="cpn2">
+        <div>
+            <ul>
+                <li>足球</li>
+                <li>篮球</li>
+                <li>乒乓球</li>
+            </ul> 
+        </div>
+    </template>
+    <script src="../vue/vue.js"></script>
+     <script>
+        //  定义全局组件
+        Vue.component('cpn1',{
+            template:'#cpn1',
+            data() {
+                return {
+                    money:99999,
+                }
+            },
+            methods: {
+                handclick(){
+                    this.$emit('myevent',this.money);
+                    this.$emit('myevent1')
+                }
+            },
+        })
+        // 定义全局组件做子组件
+        Vue.component('child',{
+            template:'#cpn2',
+            
+            
+        })
+        const app = new Vue({
+            el:'#app',
+            data:{
+                 isShow:false,
+            },
+            methods: {
+                child(data){
+                    console.log('儿子传来数据了'+data)
+                },
+                change(){
+                    this.isShow=!this.isShow;
+                }
+            },
+        })
+    </script>
+</body>
+</html>
