@@ -7,7 +7,8 @@
     <router-link to='/home' tag="button">home</router-link>
     <router-link to='/about' tag="button">about</router-link>
     <router-link :to="'/user/'+userid" tag="button">user</router-link>
-    <router-link :to='{path:"/profile",query:{name:"王瑞",year:21,height:175}}' tag="button">profile</router-link>
+    <!-- <router-link :to='{path:"/profile",query:{name:"王瑞",year:21,height:175}}'tag="button">profile<router-link> -->
+    <button @click='profile()'>profile</button>
     <router-view></router-view>
     </div>
 </template>
@@ -27,6 +28,16 @@ export default {
     aboutclick(){
       this.$router.push('/about')
     },
+    profile(){
+      this.$router.push({
+        path:'/profile',
+        query:{
+          name:'wangrui',
+          year:20,
+          height:175,
+        }
+      })
+    }
   },
 }
 </script>
