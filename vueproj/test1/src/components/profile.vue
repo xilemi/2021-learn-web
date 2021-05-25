@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 export default {
   name: "profile",
   data() {
@@ -19,7 +19,13 @@ export default {
   },
   components: {
 
-  }
+  },
+  created() {
+    console.log("profile created");
+  },
+  destroyed() {
+    console.log("profile destoryed");
+  },
 }
 </script>
 

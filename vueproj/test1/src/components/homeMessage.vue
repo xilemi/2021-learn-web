@@ -12,14 +12,9 @@
 <script type="text/ecmascript-6">
 export default {
   name: "homeMessage",
-  data() {
-    return {
-
-    }
-  },
   components: {
 
-  }
+  },
 }
 </script>
 

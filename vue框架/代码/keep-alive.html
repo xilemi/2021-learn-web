@@ -1,0 +1,19 @@
+<!-- keep -alive使用  保证组件在点击到别的组件后 不销毁
+使用方法 <keep-alive>
+    <router-view></router-view>
+    <!-- 将原本单独放置的 <router-view></router-view> 放入keep-alive -->
+     </keep-alive>
+但是设置了定向加载后  会有失效
+解决方案
+首先去掉重定向
+在被重定向的页面加入
+组件前置守卫 用来获取离开页面时页面的路径 我们在home页面里 有两个子组件 如果写死的，返回时永远只能回到定义的path路径
+beforeRouteLeave(to,from,next) 
+this.path=this.$route.path 来获取离开时的路径
+然后通过生命周期函数activated
+this.$route.push(this.path)来返回界面
+keep-alive 也有两个属性 include 包含  exclude 除了  都是写正则表达式 简单的利用直接填写 组件的name
+例如 
+<keep-alive exclude="user,profile">
+    这是 user profile就会在离开时被销毁 进入时被创建
+</keep-alive> -->

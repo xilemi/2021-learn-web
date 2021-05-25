@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 export default {
   name: 'user',
   components: { 
@@ -15,7 +15,13 @@ export default {
      user(){
          return this.$route.params.userid
      }
- }
+ },
+ created() {
+   console.log("user created");
+ },
+ destroyed() {
+   console.log("user destoryed");
+ },
 }
 </script>
 

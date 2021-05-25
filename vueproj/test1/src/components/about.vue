@@ -5,6 +5,9 @@
 </template>
 <script>
     export default {
-        name:'about'
+        name:'about',
+        created() {
+    //   document.title='关于'
+    },
     }
 </script>
