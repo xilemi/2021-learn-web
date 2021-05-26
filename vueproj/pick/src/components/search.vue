@@ -4,8 +4,8 @@
         <p><a href="#">登录</a>&nbsp;<a href="#">注册</a></p>
     </div>
     <div class="search">
-        <input type="text">
-         <button>pick</button>
+        <input type="text" v-model='inputModel'>
+         <button @click='btnclick()'>pick</button>
     </div>
     <div class="tips">
         <span><a href="#">找高校</a></span>
@@ -13,8 +13,8 @@
         <span><a href="#">找岗位</a></span>
         <span><a href="#">找用户</a></span>
     </div>
-    <div class="children">
-    <router-link to="/search/businessCard" tag="span">企业名片</router-link>
+    <div class="children" >
+    <router-link to="/search/businessCard" tag="span">企业名片 </router-link>
     <router-link to="/search/jobOffers" tag="span">招聘信息</router-link>
     <router-link to="/search/QA" tag="span">Q&A</router-link>
     </div>
@@ -27,11 +27,22 @@ export default {
   name: "search",
   data() {
     return {
-
+      inputModel:'',
+      searchData:'',
+    }
+  },
+  methods: {
+    btnclick(){
+      this.$router.push({
+        path:'/search/businessCard',
+        query:{
+         searchData:this.inputModel,
+        }
+      })
     }
   },
   components: {
-
+  
   }
 }
 </script>
