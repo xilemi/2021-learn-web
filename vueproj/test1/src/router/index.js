@@ -13,7 +13,7 @@ const about=()=> import ('../components/about')
 const user=()=> import  ('../components/user')
 const profile=()=> import ('../components/profile')
 
-// 使用
+// 使用tgtt
 Vue.use(Router)
 // 创建对象
 const routes=[
