@@ -9,6 +9,7 @@
     <router-link :to="'/user/'+userid" tag="button">user</router-link>
     <router-link :to='{path:"/profile",query:{name:"王瑞",year:21,height:175}}'tag="button">profile</router-link>
     <!-- <button @click='profile()'>profile</button> -->
+    <router-link to="/userdata"tag="button">userdata</router-link>
    <keep-alive exclude='user,profile'>
     <router-view></router-view>
    </keep-alive>

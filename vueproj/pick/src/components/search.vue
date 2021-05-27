@@ -1,15 +1,17 @@
 <template>
   <div class="search-cpn">
     <div class="bar">
-        <p><a href="#">登录</a>&nbsp;<a href="#">注册</a></p>
+        <span>企业搜索</span>
+        <span><a href="#">注册</a></span>
+        <span><a href="#">登录/</a></span>
+        
     </div>
     <div class="search">
-        <input type="text" v-model='inputModel'>
+        <input type="text" v-model='inputModel' placeholder="请输入企业名">
          <button @click='btnclick()'>pick</button>
     </div>
     <div class="tips">
         <span><a href="#">找高校</a></span>
-        <span><a href="#">找企业</a></span>
         <span><a href="#">找岗位</a></span>
         <span><a href="#">找用户</a></span>
     </div>
@@ -50,31 +52,43 @@ export default {
 <style scoped>
 .search-cpn{
             width: 100%;
-            height: 300px;
-            background-color: aquamarine;
+            height: 320px;
+            background-color: #2E302F;
             text-align: center;
             margin: 0 auto;
             display: block;
         }
-        .bar{
-            text-align: right;
+        .bar span{
+          font-size: 22px;
+          margin-right: 5px;
+          float:right;
+        }
+        .bar span:first-child{
+          font-size: 30px;
+          float: left;
         }
         .search>input{
-            width: 300px;
-            height: 24px;
+            background-color: white;
+            width: 400px;
+            height: 48px;
             margin-top: 90px;
+            border: none;
         }
         .search>button{
-            width: 50px;
-            height: 30px;
+            background-color: white;
+            width: 100px;
+            height: 50px;
             margin-top: 90px;
+            border: none;
         }
         .tips>span{
+            
             width: 50px;
             margin-right: 10px;
+            font-size: 22px;
         }
         a{
-            color: black;
+            color: white;
             text-decoration: none;
         }
         .children{
@@ -83,10 +97,10 @@ export default {
         }
         .children-view{
           position: absolute;
-          top: 380px;
+          top: 350px;
+          left: 15px;
           width: 100%;
           text-align: left;
-          background-color: cornflowerblue;
         }
         .children>span{
           font-size: 30px;

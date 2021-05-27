@@ -12,15 +12,16 @@ const homeMessage=()=> import ('../components/homeMessage')
 const about=()=> import ('../components/about')
 const user=()=> import  ('../components/user')
 const profile=()=> import ('../components/profile')
+const userdata=()=> import('../components/userdata')
 
-// 使用tgtt
+// 使用
 Vue.use(Router)
 // 创建对象
 const routes=[
-/*   {
+  {
     path:'/',
     redirect:'/home',
-  }, */
+  },
   {
     path:'/home',
     component:home,
@@ -30,10 +31,10 @@ const routes=[
     },
     children:[
       // 孩子组件的path不要
-      /* {
-         path:'',
-         redirect:'homeNews'
-      }, */
+      // {
+      //    path:'',
+      //    redirect:'homeNews'
+      // },
       {
         path:'homeNews',
         component:homeNews
@@ -65,8 +66,14 @@ const routes=[
     component:profile,
     meta:{
       title:'档案'
-    },
-    
+    }
+  },
+  {
+    path:'/userdata',
+    component:userdata,
+    meta:{
+      title:'userdata'
+    }
   }
 ]
 const router=  new Router({
@@ -77,7 +84,7 @@ const router=  new Router({
 })
 // 前置守卫
 /* router.beforeEach((to,from,next)=>{
-  document.title=to.matched[0].meta.title;
+  document.title=to.meta.title;
   // 点击下一个
   next()
   console.log(to);
