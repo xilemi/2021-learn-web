@@ -39,7 +39,7 @@
             <p><a href="#">登录</a>&nbsp;<a href="#">注册</a></p>
         </div>
         <div class="search">
-            <input type="text">
+            <input type="text" >
              <button>pick</button>
         </div>
         <div class="tips">
@@ -47,13 +47,21 @@
             <span><a href="#">找企业</a></span>
             <span><a href="#">找岗位</a></span>
         </div>
+        <h2>{{inputModel| at(0) }}</h2>
     </div>
     <script src="/vue框架/vue/vue.js"></script>
     <script>
         const app=new Vue({
             el:'#app',
-
-        })
+            data() {
+                return {
+                    inputModel:['111','666','333','555'],
+                }
+                },
+                filters:{
+                    
+                }
+        });
     </script>
 </body>
 </html>

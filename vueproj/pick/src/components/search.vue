@@ -4,7 +4,6 @@
         <span>企业搜索</span>
         <span><a href="#">注册</a></span>
         <span><a href="#">登录/</a></span>
-        
     </div>
     <div class="search">
         <input type="text" v-model='inputModel' placeholder="请输入企业名">
@@ -21,7 +20,7 @@
     <router-link to="/search/QA" tag="span">Q&A</router-link>
     </div>
     <router-view class="children-view"></router-view>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -29,6 +28,7 @@ export default {
   name: "search",
   data() {
     return {
+      // res后端返回的数据 过滤器根据inputModel返回结果 再将得到的结果填到相应的位置
       inputModel:'',
       searchData:'',
     }
@@ -56,7 +56,7 @@ export default {
             background-color: #2E302F;
             text-align: center;
             margin: 0 auto;
-            display: block;
+            
         }
         .bar span{
           font-size: 22px;
@@ -64,6 +64,7 @@ export default {
           float:right;
         }
         .bar span:first-child{
+          margin-left: 30px;
           font-size: 30px;
           float: left;
         }
@@ -92,13 +93,11 @@ export default {
             text-decoration: none;
         }
         .children{
-          position:absolute; 
-          top: 280px;
+          margin-top: 100px;
+          float: left;
         }
         .children-view{
-          position: absolute;
-          top: 350px;
-          left: 15px;
+          margin-top: 160px;
           width: 100%;
           text-align: left;
         }

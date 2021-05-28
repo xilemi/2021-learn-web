@@ -12,11 +12,5 @@ export default {
 </script>
 
 <style>
-/* .tosearch{
-  width: 100%;
-  height: 300px;
-} */
-.bc{
-  float: left;
-}
+@import '../src/assets/css/reset.css'
 </style>
