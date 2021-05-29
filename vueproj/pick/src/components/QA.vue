@@ -1,20 +1,16 @@
 <template>
   <div class="">
-
   </div>
 </template>
 
 <script>
 export default {
-  name: "",
+  name: "Q&A",
   data() {
     return {
 
     }
   },
-  components: {
-
-  }
 }
 </script>
 

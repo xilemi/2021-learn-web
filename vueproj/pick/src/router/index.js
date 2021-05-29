@@ -4,6 +4,8 @@ const search =()=>import ('../components/search')
 const businessCard =()=>import ('../components/businessCard')
 const jobOffers =()=>import ('../components/jobOffers')
 const QA =()=> import ('../components/QA')
+const offerDetails=()=> import ('../components/offerDetails')
+
 
 Vue.use(Router)
 const routes=[
@@ -26,6 +28,10 @@ const routes=[
       {
         path:'QA',
         component:QA
+      },
+      {
+        path:'/offerDetails',
+        component:offerDetails,
       },
     ]
   },

@@ -16,7 +16,7 @@
     </div>
     <div class="children" >
     <router-link to="/search/businessCard" tag="span">企业名片 </router-link>
-    <router-link to="/search/jobOffers" tag="span">招聘信息</router-link>
+    <router-link to="/search/jobOffers" tag="span">在招职位</router-link>
     <router-link to="/search/QA" tag="span">Q&A</router-link>
     </div>
     <router-view class="children-view"></router-view>

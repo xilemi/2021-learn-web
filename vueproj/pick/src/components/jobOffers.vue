@@ -2,7 +2,7 @@
   <div class="job">
     <ul>
       <!-- v-for显示多条 -->
-      <li class="job-item">
+      <li class="job-item" @click='details()'>
         <span>招聘职位</span>
         <span>工作地点</span>
         <span>工作薪资</span>
@@ -26,7 +26,6 @@
         <span>工作薪资</span>
         <span>职位要求</span>
       </li>
-      
     </ul>
   </div>
 </template>
@@ -37,6 +36,11 @@ export default {
   data() {
     return {
 
+    }
+  },
+  methods: {
+    details(){
+      this.$router.push("/offerDetails")
     }
   },
   components: {
@@ -64,6 +68,6 @@ background-color: #f5f5f5;
   background-color: #f5f5f5;
 }
 .job>ul li:nth-child(even){
-  background-color: #2E302F;
+  background-color: #5F5F5F;
 }
 </style>

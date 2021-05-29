@@ -57,7 +57,7 @@ export default {
 }
 .item p:nth-child(odd){
   color: white;
-  background-color: #2E302F;
+  background-color: #5F5F5F;
 }
 item p:nth-child(even){
   color: black;
