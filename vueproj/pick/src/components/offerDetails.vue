@@ -57,10 +57,10 @@ export default {
 }
 .details{
     width: 95%;
-    height: 300px;
     background-color: #5F5F5F;
     margin: 0 auto;
     color: #fff;
+    padding-bottom: 50px;
 }
 .details p:nth-child(1){
     font-size: 25px;

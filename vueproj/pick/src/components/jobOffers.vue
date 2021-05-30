@@ -1,33 +1,83 @@
 <template>
-  <div class="job">
-    <ul>
-      <!-- v-for显示多条 -->
-      <li class="job-item" @click='details()'>
-        <span>招聘职位</span>
-        <span>工作地点</span>
-        <span>工作薪资</span>
-        <span>职位要求</span>
-      </li>
-      <li class="job-item">
-        <span>招聘职位</span>
-        <span>工作地点</span>
-        <span>工作薪资</span>
-        <span>职位要求</span>
-      </li>
-      <li class="job-item">
-        <span>招聘职位</span>
-        <span>工作地点</span>
-        <span>工作薪资</span>
-        <span>职位要求</span>
-      </li>
-      <li class="job-item">
-        <span>招聘职位</span>
-        <span>工作地点</span>
-        <span>工作薪资</span>
-        <span>职位要求</span>
-      </li>
-    </ul>
-  </div>
+  <el-scrollbar style="height: 100%;">
+    <div class="job">
+      <ul>
+        <!-- v-for显示多条 -->
+        <li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li><li class="job-item" @click='details()'>
+          <div class="contain">
+          <p>招聘职位:hfkasdf</p>
+          <p>薪资:skdjfhsdhf</p>
+          <p>工作城市:askjddhf</p>
+          <p>工作待遇:kgjsdhfkhsdakfhasdkodfkjgkhsdkghdsfkgkdfhgkhkjdsjkdhfkshdafkjhsakfhdskfjhsadkj</p>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -51,15 +101,27 @@ export default {
 
 <style scoped>
 .job-item{
-width: 100%;
-height: 100px;
-line-height: 100px;
-margin: 0 auto;
-background-color: #f5f5f5;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
 }
-.job-item span{
-  text-align: left;
-  margin-left: 250px;
+.contain{
+  width: 1440px;
+  margin: 0 auto;
+}
+.contain p:not(.last){
+  height: 100px;
+  width: 200px;
+  float: left;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.contain p:nth-child(4){
+  width: 400px;
 }
 .job>ul li{
   height: 100px;

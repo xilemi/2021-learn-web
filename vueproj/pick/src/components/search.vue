@@ -1,9 +1,11 @@
 <template>
-  <div class="search-cpn">
-    <div class="bar">
+  <div class="">
+    <div class="search-box">
+      <div class="bar">
         <span>企业搜索</span>
-        <span><a href="#">注册</a></span>
-        <span><a href="#">登录/</a></span>
+        <!-- 这里需要判断是否有获取到用户id 来调控showid的真假 -->
+         <span v-show='!showid'><a href="#">注册/</a><a href="#">登录</a></span>
+         <span v-show='showid'>用户id</span>
     </div>
     <div class="search">
         <input type="text" v-model='inputModel' placeholder="请输入企业名">
@@ -15,11 +17,13 @@
         <span><a href="#">找用户</a></span>
     </div>
     <div class="children" >
-    <router-link to="/search/businessCard" tag="span">企业名片 </router-link>
-    <router-link to="/search/jobOffers" tag="span">在招职位</router-link>
-    <router-link to="/search/QA" tag="span">Q&A</router-link>
+      <router-link to="/search/businessCard" tag="span">企业名片</router-link>
+      <router-link to="/search/jobOffers" tag="span">在招职位</router-link>
+      <!-- 没有获取到id点击Q&A弹出未登录 -->
+      <router-link to="/search/QA" tag="span">Q&A</router-link>
+      </div>
     </div>
-    <router-view class="children-view"></router-view>
+    <router-view class="children-view" style="height: 647px;"></router-view>
     </div>
 </template>
 
@@ -28,13 +32,14 @@ export default {
   name: "search",
   data() {
     return {
-      // res后端返回的数据 过滤器根据inputModel返回结果 再将得到的结果填到相应的位置
       inputModel:'',
       searchData:'',
+      showid:false,
     }
   },
   methods: {
     btnclick(){
+      // 从服务器获取数据 通过用户企业id查找
       this.$router.push({
         path:'/search/businessCard',
         query:{
@@ -50,15 +55,13 @@ export default {
 </script>
 
 <style scoped>
-.search-cpn{
-            width: 100%;
-            height: 320px;
-            background-color: #2E302F;
-            text-align: center;
-            margin: 0 auto;
-            
+        .search-box{
+          width: 100%;
+          height: 350px;
+          background-color: #2E302F;
         }
         .bar span{
+          color: #fff;
           font-size: 22px;
           margin-right: 5px;
           float:right;
@@ -71,16 +74,25 @@ export default {
         .search>input{
             background-color: white;
             width: 400px;
-            height: 48px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
             margin-top: 90px;
             border: none;
+            outline: none;
+        }
+        .search>input::placeholder{
+          font-size: 22px;
         }
         .search>button{
+            font-size:20px ;
             background-color: white;
             width: 100px;
             height: 50px;
+            line-height: 50px;
             margin-top: 90px;
             border: none;
+            cursor: pointer;
         }
         .tips>span{
             
@@ -93,11 +105,11 @@ export default {
             text-decoration: none;
         }
         .children{
-          margin-top: 100px;
+          margin-top: 120px;
           float: left;
         }
         .children-view{
-          margin-top: 160px;
+          margin-top: 10px;
           width: 100%;
           text-align: left;
         }

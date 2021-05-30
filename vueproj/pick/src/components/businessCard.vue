@@ -4,8 +4,8 @@
           <img src="../assets/image/user.png" alt="" class="photo">
           <span>企业名字</span>
           <span>浏览次数</span>
-          <button>关注</button>
-        </div >
+          <button @click='show()' v-text='attention'></button>
+        </div>
         <div class="item">
         <p>宣传视频:</p>
         <p>企业特点:</p>
@@ -30,13 +30,29 @@ export default {
   name: "businessCard",
   data() {
     return {
-      
+      isAttention:false,
+      attention:'关注',
     }
   },
+  methods: {
+                show(){
+                    if(this.isAttention==false){
+                        this.isAttention=!this.isAttention
+                        this.attention='已关注'
+                        // 向用户的关注表里添加此企业
+                    }
+                    else if(this.isAttention==true){
+                        this.isAttention=!this.isAttention
+                        this.attention='关注'
+                        // 向用户的关注表里删除此企业
+                    }
+                }
+            },
 }
 </script>
 
 <style scoped>
+  
   .photo{
     width: 100px;
     height: 100px;
@@ -47,19 +63,33 @@ export default {
 .title{
   height: 100px;
   background-color:#f5f5f5;
-  
+}
+.title span{
+  font-size: 18px;
+  margin-left: 300px;
+}
+.title>button{
+  font-size: 18px;
+  margin-left: 200px;
+  background-color: #f5f5f5;
+}
+.item{
+  width: 100%;
 }
 .item p{
-  
   height: 30px;
   line-height: 30px;
   padding-left: 10px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .item p:nth-child(odd){
   color: white;
   background-color: #5F5F5F;
 }
-item p:nth-child(even){
+.item p:nth-child(even){
   color: black;
   background-color: #f5f5f5;
 }
