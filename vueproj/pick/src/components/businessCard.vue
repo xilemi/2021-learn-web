@@ -61,16 +61,18 @@ export default {
     margin-left: 100px;
   }
 .title{
+  width: 1440px;
   height: 100px;
   background-color:#f5f5f5;
+  margin: 0 auto;
 }
 .title span{
   font-size: 18px;
-  margin-left: 300px;
+  margin-left: 15%;
 }
 .title>button{
   font-size: 18px;
-  margin-left: 200px;
+  margin-left: 10%;
   background-color: #f5f5f5;
 }
 .item{

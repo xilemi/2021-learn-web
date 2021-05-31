@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <router-link to="/search" class="tosearch"></router-link>
+    <!-- <router-link to="/search" class="tosearch"></router-link> -->
+    <search></search>
     <router-view></router-view>
   </div>
 </template>
@@ -12,5 +13,6 @@ export default {
 </script>
 
 <style>
-@import '../src/assets/css/reset.css'
+@import '../src/assets/css/reset.css';
+
 </style>

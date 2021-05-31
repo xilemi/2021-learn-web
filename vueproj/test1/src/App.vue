@@ -49,7 +49,7 @@ export default {
 .test{
   color:#ef6700;
 }
-/* .router-link-active{
+.router-link-active{
   color: blanchedalmond;
-} */
+}
 </style>

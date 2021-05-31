@@ -71,10 +71,10 @@ export default {
           font-size: 30px;
           float: left;
         }
+        
         .search>input{
             background-color: white;
-            width: 400px;
-            height: 50px;
+            width: 20%;
             font-size: 20px;
             line-height: 50px;
             margin-top: 90px;
@@ -87,7 +87,7 @@ export default {
         .search>button{
             font-size:20px ;
             background-color: white;
-            width: 100px;
+            width: 7%;
             height: 50px;
             line-height: 50px;
             margin-top: 90px;
@@ -118,6 +118,7 @@ export default {
           margin-left: 30px;
           color: white;
         }
+
 </style>
 
 
