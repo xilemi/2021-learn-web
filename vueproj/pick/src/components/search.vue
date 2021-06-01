@@ -106,7 +106,7 @@ export default {
         }
         .children{
           margin-top: 120px;
-          float: left;
+          float: left;  
         }
         .children-view{
           margin-top: 10px;

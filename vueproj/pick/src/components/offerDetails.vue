@@ -3,7 +3,7 @@
    <div class="main">
        <span>职位</span>
        <span>月薪</span>
-       <button>收藏</button>
+       <button @click='clickCollect()'>{{$store.state.favorites}}</button>
    </div>
    <div class="details">
        <p>职位描述:</p>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
 export default {
   name: "offerDetails",
   data() {
@@ -32,9 +33,11 @@ export default {
 
     }
   },
-  components: {
-
-  }
+  methods: {
+    clickCollect(){
+      this.$store.commit('collect')
+    }
+  },
 }
 </script>
 
@@ -48,12 +51,17 @@ export default {
     
 }
 .main span:nth-child(1){
+    width: 100px;
+    height: 50px;
     margin-right: 100px;
 }
 .main>button{
+    width: 100px;
+    height: 50px;
     font-size: 25px;
     float: right;
-    margin-right: 100px;
+    margin-right: 200px;
+    background-color: #f5f5f5;
 }
 .details{
     width: 95%;

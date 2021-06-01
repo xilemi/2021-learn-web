@@ -4,7 +4,7 @@
           <img src="../assets/image/user.png" alt="" class="photo">
           <span>企业名字</span>
           <span>浏览次数</span>
-          <button @click='show()' v-text='attention'></button>
+          <button @click='show()'>{{$store.state.attention}}</button>
         </div>
         <div class="item">
         <p>宣传视频:</p>
@@ -26,28 +26,19 @@
 </template>
 
 <script>
+
 export default {
   name: "businessCard",
   data() {
     return {
-      isAttention:false,
-      attention:'关注',
+      
     }
   },
   methods: {
-                show(){
-                    if(this.isAttention==false){
-                        this.isAttention=!this.isAttention
-                        this.attention='已关注'
-                        // 向用户的关注表里添加此企业
-                    }
-                    else if(this.isAttention==true){
-                        this.isAttention=!this.isAttention
-                        this.attention='关注'
-                        // 向用户的关注表里删除此企业
-                    }
-                }
-            },
+show(){
+       this.$store.commit('attent')
+      }
+    },
 }
 </script>
 
