@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -8,7 +7,11 @@ const store = new Vuex.Store({
         isAttention:false,
         attention:'关注',
         isFavorites:false,
-        favorites:'收藏'
+        favorites:'收藏',
+        requestData:[],
+        replyData:[],
+        // 在这里来一个获取到用户id就把showid改成true 并且能够访问 qa
+        showid:false,
     },
     mutations:{
         attent(state){
@@ -32,6 +35,9 @@ const store = new Vuex.Store({
                 state.isFavorites=!state.isFavorites
                 state.favorites='收藏'
             }
+        },
+        commitQuest(state,request){
+            state.requestData.push(request)
         }
     }
 })

@@ -27,7 +27,7 @@ const routes=[
       },
       {
         path:'QA',
-        component:QA
+        component:QA,
       },
       {
         path:'/offerDetails',

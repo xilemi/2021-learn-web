@@ -3,9 +3,9 @@
     <div class="search-box">
       <div class="bar">
         <span>企业搜索</span>
-        <!-- 这里需要判断是否有获取到用户id 来调控showid的真假 -->
-         <span v-show='!showid'><a href="#">注册/</a><a href="#">登录</a></span>
-         <span v-show='showid'>用户id</span>
+        <!-- 这里需要判断是否有获取到用户id 来调控showid的真假 需要与 QA结合 判断 没有登录就不能打开qa-->
+         <span v-show='!$store.state.showid'><a href="#">注册/</a><a href="#">登录</a></span>
+         <span v-show='$store.state.showid'>用户id</span>
     </div>
     <div class="search">
         <input type="text" v-model='inputModel' placeholder="请输入企业名">
@@ -20,7 +20,7 @@
       <router-link to="/search/businessCard" tag="span">企业名片</router-link>
       <router-link to="/search/jobOffers" tag="span">在招职位</router-link>
       <!-- 没有获取到id点击Q&A弹出未登录 -->
-      <router-link to="/search/QA" tag="span">Q&A</router-link>
+      <router-link to="/search/QA" tag="span" @clcik='online()'>Q&A</router-link>
       </div>
     </div>
     <router-view class="children-view" style="height: 647px;"></router-view>
@@ -34,7 +34,6 @@ export default {
     return {
       inputModel:'',
       searchData:'',
-      showid:false,
     }
   },
   methods: {
@@ -46,6 +45,9 @@ export default {
          searchData:this.inputModel,
         }
       })
+    },
+    online(){
+      
     }
   },
   components: {
