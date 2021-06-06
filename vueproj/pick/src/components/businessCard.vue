@@ -1,7 +1,7 @@
 <template>
   <div class="">
         <div class="title">
-          <img src="../assets/image/user.png" alt="" class="photo">
+          <img src="../assets/image/企业名片.png" alt="" class="photo">
           <span>企业名字</span>
           <span>浏览次数</span>
           <button @click='show()'>{{$store.state.attention}}</button>

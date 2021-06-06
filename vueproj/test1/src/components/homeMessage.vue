@@ -13,7 +13,6 @@
 export default {
   name: "homeMessage",
   components: {
-
   },
 }
 </script>

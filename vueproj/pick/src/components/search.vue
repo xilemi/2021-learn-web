@@ -46,9 +46,6 @@ export default {
         }
       })
     },
-    online(){
-      
-    }
   },
   components: {
   
@@ -120,7 +117,6 @@ export default {
           margin-left: 30px;
           color: white;
         }
-
 </style>
 
 

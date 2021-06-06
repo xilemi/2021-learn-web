@@ -6,7 +6,7 @@
        <button @click='clickCollect()'>{{$store.state.favorites}}</button>
    </div>
    <div class="details">
-       <p>职位描述:</p>
+       <p>职位描述:{{parseInt($route.query.index)+1}}</p>
        <p>
         1.一份简单，有条理，简短的书面陈述，包括一份工作的所有基本要求的清单，
         <br>
@@ -26,18 +26,19 @@
 
 <script>
 import Vuex from 'vuex'
+
 export default {
   name: "offerDetails",
   data() {
     return {
-
+      index:''
     }
   },
   methods: {
     clickCollect(){
       this.$store.commit('collect')
-    }
-  },
+    },
+  }
 }
 </script>
 
