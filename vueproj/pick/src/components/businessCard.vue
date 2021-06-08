@@ -1,7 +1,7 @@
 <template>
   <div class="">
         <div class="title">
-          <img src="../assets/image/企业名片.png" alt="" class="photo">
+          <img :src="businessHearder" alt="" class="photo">
           <span>企业名字</span>
           <span>浏览次数</span>
           <button @click='show()'>{{$store.state.attention}}</button>
@@ -30,7 +30,7 @@ export default {
   name: "businessCard",
   data() {
     return {
-      
+      businessHearder:require('../assets/image/企业名片.png'),
     }
   },
   methods: {

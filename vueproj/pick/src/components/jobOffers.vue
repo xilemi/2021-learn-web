@@ -56,6 +56,12 @@ export default {
           city:'武汉',
           welfare:'五险一金 带薪拉屎 租房补贴',
         },
+        {
+          position:'设计师',
+          salary:'10000',
+          city:'武汉',
+          welfare:'五险一金 带薪拉屎 租房补贴',
+        },
       ]
     }
   },
@@ -82,6 +88,10 @@ export default {
 }
 </script>
 <style>
+  /* 隐藏横向滚动 */
+el-scrollbar__wrap{
+  overflow-y:scroll
+  }
 tbody>tr{
   height: 100px;
 }

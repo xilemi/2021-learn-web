@@ -1,7 +1,7 @@
 <template>
 <el-scrollbar>
   <div class="title">
-    <img src="../assets/image/企业名片.png" alt="" class="photo">
+    <img :src="businessHeader" alt="" class="photo">
     <span>企业名字</span>
     <span>浏览次数</span>
     <button @click='show()'>{{$store.state.attention}}</button>
@@ -45,7 +45,7 @@
         </div>
         <div class="icon-btn">
             <span @click="showReplyInput(i,item.name,item.id)"><i class="iconfont el-icon-s-comment"></i>{{item.commentNum}}</span>
-            <i class="iconfont el-icon-caret-top"></i>{{item.like}}
+            <span @click='commentLike(i,item.like,item.isLike)'><i class="iconfont el-icon-caret-top"></i>{{item.like}}</span>
         </div>
         <div class="talk-box">
             <p>
@@ -61,8 +61,8 @@
                     <span class="author-time">{{reply.time}}</span>
                 </div>
                 <div class="icon-btn">
-                    <span @click="showReplyInput(i,reply.from,reply.id)"><i class="iconfont el-icon-s-comment"></i>{{reply.commentNum}}</span>
-                    <i class="iconfont el-icon-caret-top"></i>{{reply.like}}
+                    <!-- <span @click="showReplyInput(j,reply.from,reply.id)"><i class="iconfont el-icon-s-comment"></i>{{reply.commentNum}}</span> -->
+                    <span @click='commentReplyLike(i,j,reply.like,reply.isLike)'><i class="iconfont el-icon-caret-top"></i>{{reply.like}}</span>
                 </div>
                 <div class="talk-box">
                     <p>
@@ -122,12 +122,14 @@ export default {
             replyComment:'',
             myName:'Lana Del Rey',
             myHeader:'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
+            businessHeader:require('../assets/image/企业名片.png'),
             myId:19870621,
             to:'',
             toId:-1,
             comments:[ 
             ],
-            
+            dialogImageUrl: '',
+            dialogVisible: false,
         }
     },
     directives: {clickoutside},
@@ -137,7 +139,7 @@ export default {
                 },
         inputFocus(){
             var replyInput = document.getElementById('replyInput');
-            // replyInput.style.padding= "8px 8px"
+            replyInput.style.padding= "8px 8px"
             replyInput.style.border ="2px solid blue"
             replyInput.focus()
         },  
@@ -150,14 +152,14 @@ export default {
             replyInput.style.border ="none"
         },
         showReplyInput(i,name,id){
-            this.comments[this.index].inputShow = false
+            this.comments[this.index].inputShow = true
             this.index =i
             this.comments[i].inputShow = true
             this.to = name
             this.toId = id
         },
         _inputShow(i){
-            return this.comments[i].inputShow 
+            return this.comments[i].inputShow=true
         },
         sendComment(){
             if(!this.replyComment){
@@ -177,7 +179,7 @@ export default {
                 a.time = time
                 a.commentNum = 0
                 a.like = 0
-                a.pic=this.dialogImageUrl
+                a.isLike=false
                 // 评论回复
                 a.reply=[]
                 this.comments.push(a)
@@ -204,6 +206,8 @@ export default {
                 a.time = time
                 a.commentNum = 0
                 a.like = 0
+                a.isLike=false
+                this.comments[i].commentNum++
                 this.comments[i].reply.push(a)
                 this.replyComment = ''
                 document.getElementsByClassName("reply-comment-input")[i].innerHTML = ""
@@ -238,15 +242,35 @@ export default {
                 var date= new Date(parseInt(date));
                 return date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate();
             }
-        }
-    }, 
-    handleRemove(file, fileList) {
+        },
+        handleRemove(file, fileList) {
         console.log(file, fileList);
       },
       handlePictureCardPreview(file) {
         this.dialogImageUrl = file.url;
         this.dialogVisible = true;
       },
+      commentLike(i,like,isLike){
+          if(this.comments[i].isLike==false){
+            this.comments[i].isLike=!this.comments[i].isLike
+              this.comments[i].like++
+          }
+          else if(this.comments[i].isLike==true){
+            this.comments[i].isLike=!this.comments[i].isLike
+              this.comments[i].like--
+          }
+      },
+      commentReplyLike(i,j,replyLike,replyIsLike){
+         if(this.comments[i].reply[j].isLike==false){
+            this.comments[i].reply[j].isLike=!this.comments[i].reply[j].isLike
+            this.comments[i].reply[j].like++
+      }
+      else if(this.comments[i].reply[j].isLike==true){
+        this.comments[i].reply[j].isLike=!this.comments[i].reply[j].isLike
+        this.comments[i].reply[j].like--
+        }
+    }, 
+}
 }
 </script>
 
@@ -393,5 +417,4 @@ export default {
     width: 100px;
     height: 100px;
 }
-  </style>
-  
+</style>

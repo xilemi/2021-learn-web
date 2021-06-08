@@ -8,8 +8,8 @@
          <span v-show='$store.state.showid'>用户id</span>
     </div>
     <div class="search">
-        <input type="text" v-model='inputModel' placeholder="请输入企业名">
-         <button @click='btnclick()'>pick</button>
+        <el-input v-model="input" placeholder="请输入企业名"></el-input>
+        <el-button type="primary" icon="el-icon-search" @click=btnclick()>pick</el-button>
     </div>
     <div class="tips">
         <span><a href="#">找高校</a></span>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <router-view class="children-view" style="height: 647px;"></router-view>
-    </div>
+    </div> 
 </template>
 
 <script>
@@ -32,8 +32,9 @@ export default {
   name: "search",
   data() {
     return {
-      inputModel:'',
+      input:'',
       searchData:'',
+      
     }
   },
   methods: {
@@ -70,31 +71,21 @@ export default {
           font-size: 30px;
           float: left;
         }
-        
-        .search>input{
-            background-color: white;
-            width: 20%;
-            font-size: 20px;
-            line-height: 50px;
-            margin-top: 90px;
-            border: none;
-            outline: none;
+        .search{
+          width: 100%;
+          padding-top: 100px;
+          
         }
-        .search>input::placeholder{
-          font-size: 22px;
+         .el-input{
+          width: 20%;
+          vertical-align: top;
         }
-        .search>button{
-            font-size:20px ;
-            background-color: white;
-            width: 7%;
-            height: 50px;
-            line-height: 50px;
-            margin-top: 90px;
-            border: none;
-            cursor: pointer;
+        .el-button{
+          color: black;
+          vertical-align: top;
+          background-color: white;
         }
-        .tips>span{
-            
+        .tips>span{  
             width: 50px;
             margin-right: 10px;
             font-size: 22px;
