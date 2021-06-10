@@ -7,7 +7,8 @@
     <button @click='show()'>{{$store.state.attention}}</button>
   </div >
   <div>
-    <div v-clickoutside="hideReplyBtn" @click="inputFocus" class="my-reply">
+    <!-- v-clickoutside="hideReplyBtn" @click="inputFocus" -->
+    <div  class="my-reply">
         <el-avatar class="header-img" :size="40" :src="myHeader"></el-avatar>
         <div class="reply-info" >
             <div 
@@ -17,7 +18,7 @@
             spellcheck="false" 
             placeholder="输入提问..." 
             class="reply-input" 
-            @focus="showReplyBtn"  
+            @focus=""  
             @input="onDivInput($event)"
             >
             </div>
@@ -33,6 +34,7 @@
 </el-dialog>
         </div>
         <div class="reply-btn-box" v-show="btnShow">
+            <el-checkbox class="noId-box" v-model='noId'>匿名</el-checkbox>
             <el-button class="reply-btn" size="medium" @click="sendComment" type="primary">发表问题</el-button>
         </div>
     </div>
@@ -44,7 +46,7 @@
             <span class="author-time">{{item.time}}</span>
         </div>
         <div class="icon-btn">
-            <span @click="showReplyInput(i,item.name,item.id)"><i class="iconfont el-icon-s-comment"></i>{{item.commentNum}}</span>
+            <span @click="showComments(i,item.name,item.id)"><i class="iconfont el-icon-s-comment"></i>{{item.reply.length}}</span>
             <span @click='commentLike(i,item.like,item.isLike)'><i class="iconfont el-icon-caret-top"></i>{{item.like}}</span>
         </div>
         <div class="talk-box">
@@ -61,7 +63,7 @@
                     <span class="author-time">{{reply.time}}</span>
                 </div>
                 <div class="icon-btn">
-                    <!-- <span @click="showReplyInput(j,reply.from,reply.id)"><i class="iconfont el-icon-s-comment"></i>{{reply.commentNum}}</span> -->
+                    <span @click="showReplyInput(i,j,reply.from,reply.id)">回复</span>
                     <span @click='commentReplyLike(i,j,reply.like,reply.isLike)'><i class="iconfont el-icon-caret-top"></i>{{reply.like}}</span>
                 </div>
                 <div class="talk-box">
@@ -73,7 +75,7 @@
             </div>
         </div>
          <!-- 评论回复 -->
-        <div  v-show="_inputShow(i)" class="my-reply my-comment-reply">
+        <div  v-show="item.inputShow" class="my-reply my-comment-reply">
             <el-avatar class="header-img" :size="40" :src="myHeader"></el-avatar>
             <div class="reply-info" >
                 <div tabindex="0" contenteditable="true" spellcheck="false" placeholder="输入评论..."   @input="onDivInput($event)"  class="reply-input reply-comment-input"></div>
@@ -87,7 +89,7 @@
 </el-scrollbar>
 </template>
 <script>
-const clickoutside = {
+/* const clickoutside = {
     // 初始化指令
     bind(el, binding, vnode) {
     function documentHandler(e) {
@@ -111,55 +113,78 @@ const clickoutside = {
     document.removeEventListener('click', el.vueClickOutside);
     delete el.vueClickOutside;
   },
-};
+}; */
 
 export default {
     name:'QA',
     data(){
         return{
-            btnShow: false,
+            btnShow: true,
+            noId:false,
             index:'0',
             replyComment:'',
             myName:'Lana Del Rey',
             myHeader:'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
             businessHeader:require('../assets/image/企业名片.png'),
             myId:19870621,
-            to:'',
-            toId:-1,
             comments:[ 
+            {
+                    name:'Lana Del Rey',
+                    id:19870621,
+                    headImg:'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
+                    comment:'我发布一张新专辑Norman Fucking Rockwell,大家快来听啊',
+                    time:'2019年9月16日 18:43',
+                    commentNum:0,
+                    like:15,
+                    inputShow:false,
+                    isLike:false,
+                    reply:[
+                        {
+                            from:'Taylor Swift',
+                            fromId:19891221,
+                            fromHeadImg:'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
+                            to:'Lana Del Rey',
+                            toId:19870621,
+                            comment:'我很喜欢你的新专辑！！',
+                            time:'2019年9月16日 18:43',
+                            like:15,
+                            isLike:false,
+                            inputShow:false
+                        },
+                        {
+                            from:'Ariana Grande',
+                            fromId:1123,
+                            fromHeadImg:'https://ae01.alicdn.com/kf/Hf6c0b4a7428b4edf866a9fbab75568e6U.jpg',
+                            to:'Lana Del Rey',
+                            toId:19870621,
+                            comment:'别忘记宣传我们的合作单曲啊',
+                            time:'2019年9月16日 18:43',
+                            like:5,
+                            isLike:false, 
+                            inputShow:false
+ 
+                        }
+                    ]
+                },
+
             ],
             dialogImageUrl: '',
             dialogVisible: false,
         }
     },
-    directives: {clickoutside},
     methods: {
          show(){
                    this.$store.commit('attent')
                 },
-        inputFocus(){
-            var replyInput = document.getElementById('replyInput');
-            replyInput.style.padding= "8px 8px"
-            replyInput.style.border ="2px solid blue"
-            replyInput.focus()
-        },  
-        showReplyBtn(){
-            this.btnShow = true
+        showComments(i,name,id){
+            this.comments[i].inputShow =true
+            this.to=name
+            this.toId=id
         },
-        hideReplyBtn(){
-            this.btnShow = false
-            replyInput.style.padding= "10px"
-            replyInput.style.border ="none"
-        },
-        showReplyInput(i,name,id){
-            this.comments[this.index].inputShow = true
-            this.index =i
-            this.comments[i].inputShow = true
-            this.to = name
-            this.toId = id
-        },
-        _inputShow(i){
-            return this.comments[i].inputShow=true
+        showReplyInput(i,j,name,id){
+            this.comments[i].inputShow =true
+            this.to = this.comments[i].reply[j].from
+            this.id=this.comments[i].reply[j].fromId 
         },
         sendComment(){
             if(!this.replyComment){
@@ -168,7 +193,8 @@ export default {
                     type:'warning',
                     message:'提问不能为空'
                 })
-            }else{
+            }
+            else if(this.noId==false){
                 let a ={}
                 let input =  document.getElementById('replyInput')
                 let timeNow = new Date().getTime();
@@ -180,6 +206,26 @@ export default {
                 a.commentNum = 0
                 a.like = 0
                 a.isLike=false
+                a.inputShow=false
+                // 评论回复
+                a.reply=[]
+                this.comments.push(a)
+                this.replyComment = ''
+                input.innerHTML = '';
+            }
+            else{
+                let a ={}
+                let input =  document.getElementById('replyInput')
+                let timeNow = new Date().getTime();
+                let time= this.dateStr(timeNow);
+                a.name="匿名"
+                a.comment =this.replyComment
+                a.headImg = this.myHeader
+                a.time = time
+                a.commentNum = 0
+                a.like = 0
+                a.isLike=false
+                // 回复匿名选项
                 // 评论回复
                 a.reply=[]
                 this.comments.push(a)
@@ -188,6 +234,7 @@ export default {
 
             }
         },
+        
         sendCommentReply(i){
             if(!this.replyComment){
                  this.$message({
@@ -204,7 +251,6 @@ export default {
                 a.fromHeadImg = this.myHeader
                 a.comment =this.replyComment
                 a.time = time
-                a.commentNum = 0
                 a.like = 0
                 a.isLike=false
                 this.comments[i].commentNum++
@@ -344,6 +390,11 @@ export default {
 	 float: right;
 	 margin-right: 15px;
 }
+ .noId-box{
+     position: relative;
+     float: right;
+     margin-right: 20px;
+ }
  .my-comment-reply {
 	 margin-left: 50px;
 }

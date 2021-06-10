@@ -16,7 +16,7 @@
         <span><a href="#">找岗位</a></span>
         <span><a href="#">找用户</a></span>
     </div>
-    <div class="children" >
+    <div class="children" v-show='isShow'>
       <router-link to="/search/businessCard" tag="span">企业名片</router-link>
       <router-link to="/search/jobOffers" tag="span">在招职位</router-link>
       <!-- 没有获取到id点击Q&A弹出未登录 -->
@@ -34,16 +34,17 @@ export default {
     return {
       input:'',
       searchData:'',
-      
+      isShow:false
     }
   },
   methods: {
     btnclick(){
+      this.isShow=true
       // 从服务器获取数据 通过用户企业id查找
       this.$router.push({
         path:'/search/businessCard',
         query:{
-         searchData:this.inputModel,
+         searchData:this.input,
         }
       })
     },
