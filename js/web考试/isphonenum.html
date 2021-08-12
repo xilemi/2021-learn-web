@@ -1,0 +1,21 @@
+<html>
+    <body>
+    <input id="Tel" type="text" value="">
+    <button onclick="myFunction()">验证号码</button>
+    <script>
+    function myFunction(){
+      isPhone(document.getElementById("Tel").value);
+    }
+    function isPhone(phone) {
+                var myreg=/^1[3-9]\d{9}$/;
+                /* 以字面意义来匹配正则表达式,^表示开头 $表示结尾,[a-b]在a-b的范围内匹配,\d在0-9内匹配,{n}前面表达式出现的次数 */
+                if (!myreg.test(phone)) {
+                    alert('手机号非法');
+                } else {
+                    alert('手机号正确');
+                }
+            } 
+    </script>
+    </body>
+    </html>
+    

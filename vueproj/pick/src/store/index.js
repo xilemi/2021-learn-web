@@ -4,12 +4,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state:{
+        // 这里还要讲请求过来的数据进行读取，看是否关注
         isAttention:false,
         attention:'关注',
         isFavorites:false,
         favorites:'收藏',
-        requestData:[],
-        replyData:[],
         // 在这里来一个获取到用户id就把showid改成true 并且能够访问 qa
         showid:false,
     },

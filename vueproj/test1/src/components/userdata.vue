@@ -2,12 +2,13 @@
   <div class="">
    <h2>axios练习</h2>
    <button @click='getuserdata()'>获取</button>
-   <p>{{userdata}}</p>
+   <p v-for="item in userdata">{{item.url}}</p>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  
 export default {
   name: "",
   data() {
@@ -20,12 +21,10 @@ export default {
   },
   methods: {
     getuserdata(){
-      axios({
-        baseURL:'http://api.k780.com/?app=life.time&appkey=APPKEY&sign=SIGN&format=json&jsoncallback=data',
-        timeout:5000,
-      }).then(res=>{
-        this.userdata=res;
-      });
+      let that=this
+      axios.get("http://gocloudcoder.com:8082/api/v1/search?name=周").then(function(response){
+         that.userdata=response.data.data;
+      })
        
     }
   },

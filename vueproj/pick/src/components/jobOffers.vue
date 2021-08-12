@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       currentRowIndex:1,
+      // 请求数据给
       tableData:[
         {
           position:'设计师',

@@ -16,14 +16,14 @@
         <span><a href="#">找岗位</a></span>
         <span><a href="#">找用户</a></span>
     </div>
-    <div class="children" v-show='isShow'>
-      <router-link to="/search/businessCard" tag="span">企业名片</router-link>
-      <router-link to="/search/jobOffers" tag="span">在招职位</router-link>
+    <div class="children">
+          <router-link :to="{ path:'/search/businessCard',query:{input:this.input}}" tag="span">企业名片</router-link>
+      <router-link :to="{ path:'/search/jobOffers',query:{input:this.input}}" tag="span">在招职位</router-link>
       <!-- 没有获取到id点击Q&A弹出未登录 -->
-      <router-link to="/search/QA" tag="span" @clcik='online()'>Q&A</router-link>
+      <router-link :to="{ path:'/search/QA',query:{input:this.input}}" tag="span" @clcik='online()'>Q&A</router-link>
       </div>
     </div>
-    <router-view class="children-view" style="height: 647px;"></router-view>
+      <router-view class="children-view" style="height: 647px;"></router-view>
     </div> 
 </template>
 
@@ -32,19 +32,17 @@ export default {
   name: "search",
   data() {
     return {
+      // 输入的内容
       input:'',
-      searchData:'',
-      isShow:false
     }
   },
   methods: {
     btnclick(){
-      this.isShow=true
       // 从服务器获取数据 通过用户企业id查找
       this.$router.push({
         path:'/search/businessCard',
         query:{
-         searchData:this.input,
+          input:this.input
         }
       })
     },
@@ -58,14 +56,20 @@ export default {
 <style scoped>
         .search-box{
           width: 100%;
-          height: 350px;
+          height: 400px;
           background-color: #2E302F;
+        }
+        .bar{
+          width: 100%;
+          height: 50px;
+          background-color:;
         }
         .bar span{
           color: #fff;
           font-size: 22px;
           margin-right: 5px;
           float:right;
+          
         }
         .bar span:first-child{
           margin-left: 30px;
@@ -90,6 +94,7 @@ export default {
             width: 50px;
             margin-right: 10px;
             font-size: 22px;
+            
         }
         a{
             color: white;
@@ -108,6 +113,7 @@ export default {
           font-size: 30px;
           margin-left: 30px;
           color: white;
+          cursor: pointer;
         }
 </style>
 

@@ -319,6 +319,7 @@
     animation: switch-swiper 15s infinite ease;
     改用js */
     z-index: 888;
+    position: relative;
 }
 #swiper-btn-left,#swiper-btn-right{
     width: 41px;
@@ -326,18 +327,15 @@
     line-height: 69px;
     border-radius: 2px;
     cursor: pointer;
-    position: absolute;
+    position: relative;
     color: #b0b0b0;
-    top: 50%;
-    margin-top: -34.5px;
-    z-index: 890;
 }
 #swiper-btn-left:hover,#swiper-btn-right:hover{
     background-color: #717073;
     color: #fff;
 }
 #swiper-btn-left{
-    left: 573px;
+    left: 338px;
     font-size: 40px;
 }
 #swiper-btn-right{
@@ -365,7 +363,7 @@
     height: 460px;
     margin: 0 auto;
     position: absolute;
-    left: 443px;
+    left: 0px;
 }
 /* 轮播图切换动画实现 改用js */
 /* @keyframes switch-swiper{

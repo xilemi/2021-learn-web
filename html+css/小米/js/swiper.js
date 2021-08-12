@@ -23,7 +23,7 @@ swiperBtnLeft.onclick=function(){
    img.src='images/'+imgarr[i];
 }
 // 自动轮播
-self.setInterval("swiperBtnRight.onclick()",5000);
+self.setInterval("swiperBtnRight.onclick()",1000);
 // 右下角圆点与图片同步
 function show(index){
     for(var i=0;i<5;i++){

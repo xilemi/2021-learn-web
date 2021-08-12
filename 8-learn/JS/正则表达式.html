@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var str="1b43v2b234aab43dd3n56mfvcn44nnn2n4";
+        // 正则表达式与字符串方法的结合使用 
+        // 正则表达式的语法 第一种创建对象法，第一个参数写正则表达式 第二个参数写作用域
+        // var res=new RegExp("mn","g")
+        // 第二种 字面量法 /这里写正则表达式/这里写作用域
+        var res=/[a-z]/g
+        console.log(res.test(str));
+        // 匹配任意数字[0-9]或者\d 任意字母 使用[A-z] 任意小写字母 [a-z] 任意大写字母[A-Z]
+        // 作用域 i忽略大小写  g全局作用域(正则表达式匹配到第一个就会结束)
+        // 将上面这个字符串拆分为数组 使用split方法，用字母来拆分 用正则表达式时不用写双引号
+        var r1=str.split(/[0-9]/);
+            console.log(r1);
+        // search 方法 返回位置 只能返回第一个查找到的元素
+        var r2=str.search(/[a-z]/);
+        console.log(r2);
+        // replace 替换的效果更好 因为不只替换一个 
+        var r3=str.replace(/[0-9]/g,"");
+        console.log(r3);
+        // match 返回匹配到的内容 返回结果是数组 match匹配到第一元素就会结束 所以要给正则表达式加上全局作用域 g
+        var r4=str.match(/[a-z]/g);
+        console.log(r4);
+        
+    </script>
+</body>
+</html>

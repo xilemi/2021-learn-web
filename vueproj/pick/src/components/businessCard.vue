@@ -2,41 +2,57 @@
   <div class="">
         <div class="title">
           <img :src="businessHearder" alt="" class="photo">
-          <span>企业名字</span>
+          <span>企业名字:{{searchData[0].name}}</span>
           <span>浏览次数</span>
           <button @click='show()'>{{$store.state.attention}}</button>
         </div>
         <div class="item">
-        <p>宣传视频:</p>
-        <p>企业特点:</p>
-        <p>公司简介:</p>
-        <p>公司文化:</p>
-        <p>公司愿景:</p>
-        <p>公司架构:</p>
-        <p>产品/服务介绍:</p>
-        <p>工商信息:</p>
-        <p>公司地址:</p>
-        <p>荣誉墙:</p>
-        <p>风采展:</p>
-        <p>提升机制:</p>
-        <p>实训生名额及内容:</p>
-        <p>联系方式:</p>
-        </div>
+          <p>宣传视频:{{searchData[0].id}}</p>
+          <p>企业特点:{{}}</p>
+          <p>公司简介:{{}}</p>
+          <p>公司文化:{{}}</p>
+          <p>公司愿景:{{}}</p>
+          <p>公司架构:{{}}</p>
+          <p>产品/服务介绍:{{}}</p>
+          <p>工商信息:{{}}</p>
+          <p>公司地址:{{}}</p>
+          <p>荣誉墙:{{}}</p>
+          <p>风采展:{{}}</p>
+          <p>提升机制:{{}}</p>
+          <p>实训生名额及内容:{{}}</p>
+          <p>联系方式:{{}}</p>
+          </div>
   </div>
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: "businessCard",
   data() {
     return {
       businessHearder:require('../assets/image/企业名片.png'),
+      // 请求回来的数据
+      searchData:"",
     }
   },
   methods: {
 show(){
        this.$store.commit('attent')
       }
+    },
+    updated() {
+      let that=this
+      axios.get("http://gocloudcoder.com:8082/api/v1/search?name="+that.$route.query.input).then(function(res){
+        that.searchData=res.data.data
+      })
+    },
+    created() {
+      console.log("chaungj");
+      let that=this
+      axios.get("http://gocloudcoder.com:8082/api/v1/search?name="+that.$route.query.input).then(function(res){
+        that.searchData=res.data.data
+      })
     },
 }
 </script>

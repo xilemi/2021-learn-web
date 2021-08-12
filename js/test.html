@@ -7,7 +7,20 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- js改变元素样式，首先获取到元素，然后修改元素样式。配合函数 -->
+    <p id="a">段落</p>
+    <h1 id="b">标题1</h1>
+    <h2 id="c">标题2</h2>
+    <button onclick="change()">变蓝</button>
+    <button>变绿</button>
+    <button>变红</button>
     <script>
+        function change(){
+        var a=document.getElementById("a")
+        /* a.style.backgroundColor="#b0b0b0";
+        a.style.color="#ef6700"; */
+        a.style.cssText="background-color:#b0b0b0;color:#ef6700;"
+        }
     </script>
 </body>
 </html>

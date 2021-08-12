@@ -1,0 +1,53 @@
+#title{
+    padding-top: 100px;
+}
+/* 最外层容器 */
+.container{
+    width: 1226px;
+    height: 460px;
+    background-color: bisque;
+    margin: 0 auto 100px;
+    position: relative;
+}
+#swiper-img{
+    width: 1226px;
+    height: 460px;
+}
+.left-bar{
+    width: 234px;
+    height: 420px;
+    color: #fff;
+    padding: 20px 0;
+    text-align: left;
+    font-size: 14px;
+    background: rgba(105,101,101,.6);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.left-bar li{
+    width: 204px;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 30px;
+}
+.left-bar li:hover{
+    background: #ef6700;
+    /* 悬停出现手指 */
+    cursor: pointer;
+}
+#left-btn,#right-btn{
+    position: absolute;
+    top: 50%;
+    margin-top: -38px;
+    cursor: pointer;
+}
+#left-btn{
+    left: 234px;
+}
+#right-btn{
+    right: 0px;
+}
+#left-btn:hover,#right-btn:hover{
+background: rgba(105,101,101,.6);
+}

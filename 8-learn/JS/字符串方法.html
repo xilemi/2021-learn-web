@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+        var str="sdjfsdsf-dHIUYDaf, sdDFlfjadSsljfg"
+        // 返回字符串长度
+        console.log(str.length);
+        // 查找字符串内容 首次出现indexof  最后一次出现lastindexof 如果没有找到返回-1 可以用来判断是否含有什么字段
+        // 首次出现
+        console.log(str.indexOf("df"));
+        console.log(str.indexOf("dd")+"没有找到");
+        // 最后一次出现
+        console.log(str.lastIndexOf(","));
+        // 裁剪字符串 slice(start,end) end下标是不被包含的 如果只有start参数的话 那么直接截取到结尾。
+        console.log(str.slice(3,9));
+        // 直接到结尾
+        console.log(str.slice(3));
+        // 大小写转换 toUpperCase toLowerCase
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+        // 替换匹配到的字段 但只能配到到首次的 而且还是大小写敏感的  后面用正则表达式可以调整。
+        console.log(str.replace("dsf","hhhh"));
+
+  </script>
+    
+</body>
+</html>
