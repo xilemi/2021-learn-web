@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #inone{
+            width: 500px;
+            height: 50px;
+            outline: 0;
+            border: 25px solid #ef6700;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="inone">
+    <script>
+        var inone=document.getElementById("inone");
+        inone.onfocus=function(){
+            this.style.borderColor="blue";
+        }
+        inone.onblur=function(){
+            this.style.borderColor="#ef6700"
+        }
+    </script>
+</body>
+</html>

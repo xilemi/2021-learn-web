@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <h1>{{name}}</h1>
+        <h1>{{addres}}</h1>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        let data={
+                name:"zhangsan",
+                addres:"wuhan"
+        }
+        const app=new Vue({
+            el:"#test",
+            data,
+        })
+    </script>
+</body>
+</html>

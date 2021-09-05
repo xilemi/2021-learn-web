@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            position: absolute;
+            left: 100px;
+            top: 0;
+            background-color:#ef6700;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="btn">开始</button>
+    <button id="btn1">回来</button>
+    <script>
+           var box=document.getElementById("box");
+           var btn=document.getElementById("btn");
+           var btn1=document.getElementById("btn1");
+        //    获取元素的属性函数写法
+        function getStyle(obj,name){
+            return window.getComputedStyle(obj,null)[name];
+        }
+        var x=parseInt(getStyle(box,"left"));
+        var s;
+           btn.onclick=function(){
+               clearInterval(s);
+                s=setInterval(()=>{
+                   x+=10;
+                   if(x>800){
+                       x=800
+                   }
+                   if(x==800){
+                       clearInterval(s)
+                   }
+                   box.style.left=x+"px";
+               },30);
+           }
+           btn1.onclick=function(){
+               clearInterval(s)
+                s=setInterval(()=>{
+                   x-=10;
+                   if(x<100){
+                       x=100;
+                   }
+                   if(x==100){
+                       clearInterval(s)
+                   }
+                   box.style.left=x+"px";
+               },30);
+
+           }
+    </script>
+</body>
+</html>

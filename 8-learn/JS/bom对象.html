@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button onclick="rel()">刷新</button>
+    <script>
+        // navigator 代表当前浏览器信息
+        console.log(navigator.userAgent);
+        // 判断是什么浏览器
+        var ua=navigator.userAgent;
+        if(/chrome/i.test(ua)){
+            // alert("是chrome")
+        }
+        else{
+            alert("不是")
+        }
+        // history 读取历史记录
+        // history.back();后退
+        // history.forward();前进
+        // history.go();参数为数字 正数向前 负数向后
+        // location 显示当前地址信息 同时也可以修改地址信息
+        console.log(location);
+        // 修改当前地址
+        // location="http://www.baidu.com"
+        // 或者使用assign来修改地址，assign是要到的地址
+        // location.assign("http://www.baidu.com");
+        // 重新加载 reload()从新加载 如果清除缓存 传递一个true的参数即可
+        function rel(){
+            location.reload(true);
+        }
+    </script>
+</body>
+</html>

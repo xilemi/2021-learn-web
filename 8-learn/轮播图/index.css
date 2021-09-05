@@ -1,0 +1,56 @@
+html {
+	font-size: 100px;  /* 1px = 0.01rem */
+}
+
+body,div,ul,li {
+	margin: 0;
+	padding: 0;
+}
+
+.index_body {
+	position: relative;
+  margin-left: 0.2rem;
+  margin-top: 0.2rem;
+	width: 5rem;
+	overflow: hidden;
+}
+
+.left_btn {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0.1rem;
+	margin: auto;
+	width: 42px;
+	height: 71px;
+	z-index: 10;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.right_btn {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0.1rem;
+	margin: auto;
+	width: 42px;
+	height: 71px;
+	z-index: 10;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.slidebox {
+	white-space: nowrap; 
+	font-size: 0;
+}
+
+.slide_item {
+	display: inline-block;
+	list-style: none;
+}
+
+.slide_item img{
+	width: 5rem;
+}

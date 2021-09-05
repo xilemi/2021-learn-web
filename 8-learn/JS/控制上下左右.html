@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background-color: burlywood;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" style="left: 50px; top: 50px;"></div>
+    <script>
+        // 获取要控制的元素 box.style.left这种方式只能读取行内的属性
+        var box=document.getElementById("box1");
+        console.log(box.style.top);
+        document.onkeydown=function(event){
+            var speed=5;
+            // 使用getComputedStyle来获取元素的css属性
+            var boxstyle=window.getComputedStyle(box,null);
+            // 转换成数字型
+            var x=parseInt(boxstyle.left);
+            var y=parseInt(boxstyle.top);
+            // 按上或者w位置向上
+            if(event.keyCode===38||event.keyCode===87){
+                if(y>0){
+                    y-=speed;
+                }
+            }
+            // 下或者s
+            if(event.keyCode===40||event.keyCode===83){
+                y+=speed
+            }
+            // 左或者a
+            if(event.keyCode===37||event.keyCode===65){
+                if(x>0){
+                    x-=speed
+                }
+            }
+            // 右或者d
+            if(event.keyCode===39||event.keyCode===68){
+                x+=speed
+            }
+            // 将最终的结果赋值给元素的位置
+            box.style.left=x+"px";
+            box.style.top=y+"px";
+        }
+        /* 
+        实现思路，通过修改元素的left和top属性值，来达到移动元素的目的，对于键盘事件，应该直接给document的，
+        然后要获取到元素的left，top属性，这里有很多方式  直接 el.style.left可以读取和修改，但是有缺陷，读取到行内元素的
+        然后getComputedStyle(el,null)这是得到所有属性的集合，然后通过属性名取出来，和对象的用法相似，但是只能读取不能修改
+        这两种方式获取到的都是string对象，因此需要转换成num 进行运算后，再赋值给el.style.left
+        
+        */
+    </script>
+</body>
+</html>

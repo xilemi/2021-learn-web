@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            border-radius: 5px;
+            position:absolute;
+        }
+    </style>
+</head>
+<body style="height: 10000px;">
+    <!-- 创建一个方块 -->
+    <div id="box1"></div>
+    <script>
+        // 创建事件，鼠标移动时，元素的位置改变，那么要开启元素的定位
+        // 那么事件是对于谁的呢，对于chrome是对于body的
+        var box=document.getElementById("box1");
+        
+        document.onmousemove=function(event){
+            // console.log(body.scrollTop);
+            // 兼容性
+            event=event||window.event;
+            // 使用这种方式会导致 当页面可以滚动时，在元素和鼠标之间是会有一段距离的，原因是client的起点是窗口，是固定的
+            // 而元素的起点是document，他的位置会改变，滚动时，窗口和页面的起点就不同了。
+           /*  解决方案，给元素加上页面滚动的距离，获取滚动的距离有两种 ，chrome认为是body（我设置的body的height），但其他浏览器认为是body的父元素的 设置兼容性*/
+           var st=document.body.scrollTop||document.documentElement.scrollTop;
+           var sl=document.body.scrollLeft||document.documentElement.scrollLeft;
+
+            var x=event.clientX;
+            var y=event.clientY;
+            // 这里要带上单位px
+            box.style.top=y+st+"px";
+            box.style.left=x+sl+"px";
+        }
+    </script>
+</body>
+</html>
