@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='numIndex(index)' v-for='(item,index) in num'>按钮{{item}}</button>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                num:[1,2,3,4,5],
+            },
+            methods:{
+                numIndex(index){
+                   console.log("点击第"+(index+1)+"按钮");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body{
+        padding: 0;
+        margin: 0;
+      }
+        .wrapper {
+  display: grid;
+  /* 列  这里划分为两行三列 */
+  grid-template-columns: repeat(auto-fill, 250px);
+  /* grid-gap: 10px; */
+  /* 行 */
+  grid-template-rows:repeat(auto-fill,50px);
+}
+.one{
+  /* 开始行数到结束行数 用分号隔开 后面没有位置的顺延 默认都是一人占一个格子*/
+  grid-column: 1/10;
+  grid-row: 1;
+  background-color: antiquewhite;
+  font-size: 20px;
+  text-align: center;
+}
+.two{
+  grid-column:1;
+  grid-row: 2/90;
+  background-color: #ef6700;
+}
+.two>ul{
+  margin: 20px 0;
+}
+.two li{
+  height: 50px;
+  list-style: none;
+  border: 1px solid #ef6700;
+}
+.view{
+  grid-column:2/10;
+  grid-row: 2/90;
+  background-color: chartreuse;
+}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="one">我的博客</div>
+        <div class="two">
+          <ul>
+            <li>我的信息</li>
+            <li>我的成绩</li>
+            <li>我的考试</li>
+            <li>我的选课</li>
+            <li>我的挂科</li>
+          </ul>
+        </div>
+        <div class="view">内容显示</div>
+      </div>
+      <!-- 思路 进来就是首页，然后点击侧边栏进行路由的跳转，更新view板块 -->
+</body>
+</html>

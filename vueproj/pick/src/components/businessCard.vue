@@ -42,17 +42,17 @@ show(){
       }
     },
     updated() {
-      let that=this
+      /* let that=this
       axios.get("http://gocloudcoder.com:8082/api/v1/search?name="+that.$route.query.input).then(function(res){
         that.searchData=res.data.data
-      })
+      }) */
     },
     created() {
-      console.log("chaungj");
+      /* console.log("chaungj");
       let that=this
       axios.get("http://gocloudcoder.com:8082/api/v1/search?name="+that.$route.query.input).then(function(res){
         that.searchData=res.data.data
-      })
+      }) */
     },
 }
 </script>
