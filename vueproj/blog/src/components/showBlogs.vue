@@ -1,9 +1,9 @@
 <template>
-  <div id="show-blogs" v-theme:column="'narrow'">
+  <div id="show-blogs" v-theme:column="'wide'">
       <h1>博客总览</h1>
       <input type="text" v-model="search" placeholder="搜索">
       <div id="blog" v-for="blog in blogsSearch">
-          <h2 v-rainbow>{{blog.title | toUppercase}}</h2>
+         <h2 v-rainbow @click="detail(blog.id)">{{blog.title | toUppercase}}</h2> 
           <article>{{blog.body | short}}</article>
       </div>
   </div>
@@ -16,6 +16,18 @@ export default {
     return {
       blogs:[],
       search:"",
+    }
+  },
+  methods: {
+    detail(id){
+      this.$router.push(
+        {
+          path:'/detailblog',
+          query:{
+             id:id
+          }
+        }
+      )
     }
   },
   created() {
@@ -64,5 +76,9 @@ input{
     padding: 20px;
     border-radius: 4px;
     border: none;
+    font-size: 20px;
+}
+h2{
+  cursor: pointer;
 }
 </style>
