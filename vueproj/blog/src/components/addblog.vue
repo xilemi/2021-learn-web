@@ -17,7 +17,7 @@
       <select v-model="blog.author" >
         <option v-for="author in authors">{{author}}</option>
       </select>
-      <button @click="post">提交文章</button>
+      <button @click.prevent="post">提交文章</button>
      </form>
      <div v-if="s">
        <h3>提交成功!!!!</h3>
@@ -55,16 +55,12 @@ export default {
          author:'',
         },
        s:false,
-       authors:["111","2222","xile"]
+       authors:["xile","haokana","changan"]
     }
   },
   methods: {
     post(){
-      this.$http.post("https://jsonplaceholder.typicode.com/posts",{
-          title:this.blog.title,
-          body:this.blog.content,
-          userId:"1"
-      }).then((data)=>{
+      this.$http.post("https://blogs-69dd3-default-rtdb.firebaseio.com/posts.json",this.blog).then((data)=>{
         console.log(data);
         this.s=true;
       })
