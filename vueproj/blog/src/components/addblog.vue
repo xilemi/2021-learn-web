@@ -14,9 +14,11 @@
           <input type="checkbox" value="angular.js" v-model="blog.catagories">angular.js
       </div>
       <label>作者</label>
-      <select v-model="blog.author" >
+      <!-- <select v-model="blog.author" >
         <option v-for="author in authors">{{author}}</option>
-      </select>
+      </select> -->
+      <!-- 将选择作者改为输入作者 -->
+      <input type="text" v-model="blog.author">
       <button @click.prevent="post">提交文章</button>
      </form>
      <div v-if="s">
@@ -55,7 +57,7 @@ export default {
          author:'',
         },
        s:false,
-       authors:["xile","haokana","changan"]
+      //  authors:["xile","haokana","changan"]
     }
   },
   methods: {
