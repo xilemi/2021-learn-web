@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数的声明 两种方式
+        //    function命令法 函数声明法
+        function 函数名(){
+
+        }
+        // 例如:
+        // function hello(){
+        //     console.log("hello");
+        // }
+        //    函数表达式法，用变量来代指函数，没有变名量
+        // var hello=function(){
+        //     console.log("hello");
+        // }
+        /* 两者的区别，当使用function命令法的时候，先调用函数，再声明函数，任然可以正常输出，因为函数声明法，在js预解析时，将函数声明提升到了最最先。而使用函数表达法的时候就不会
+        */
+    //   function命令法
+    //    hello();
+    //     function hello(){
+    //        console.log("hello");
+    //     }
+    //    函数声明提升到最先
+    
+    // 函数表达式法
+      hello();
+       var hello=function(){
+        console.log("hello");
+     }
+    // 不能正常输出 提示hello is not a function
+
+
+        // 调用函数
+        函数名();
+        // 例子
+        // hello();
+        // 函数变量 全局变量：在函数外声明的，所有位置都可以使用，局部变量：只能在函数里边使用，外部无法读取
+        // 局部变量 在函数内使用var声明的 如果没有使用var 声明 则变成全局变量
+    </script>
+</body>
+</html>

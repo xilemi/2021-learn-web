@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,th,tr{
+            border: 1px solid black;
+        }
+        table{
+            width: 500px;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td,th{
+            height: 50px;
+            overflow: hidden;
+            text-align: left;
+        }
+        .sub{
+            width: 500px;
+            margin-top: 50px;
+            margin: 50px auto;
+            border: 1px solid black;
+        }
+        .sub p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 首先建立，显示列表，然后一个提交信息列表 -->
+    <!-- 建立显示列表 -->
+    <table id="tableNode">
+        <tr>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>xile</td>
+            <td>12231</td>
+            <td>男</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>长安</td>
+            <td>12344</td>
+            <td>女</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>哈哈哈</td>
+            <td>123424</td>
+            <td>男</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+    </table>
+    <div class="sub">
+       <p>姓名:<input type="text" id="name"></p>
+       <p>电话:<input type="text" id="phone"></p>
+       <p>性别:<input type="text" id="sex"></p>
+       <p><button onclick="add()">提交</button></p>
+    </div>
+    <script>
+        // 首先实现添加功能
+        // 获取到输入框的值
+    var tableNode=document.getElementById("tableNode");
+    var tagA=document.getElementsByTagName("a");
+    function add(){
+        var name=document.getElementById("name").value;
+        var phone=document.getElementById("phone").value;
+        var sex=document.getElementById("sex").value;
+        // 新建tr td节点
+        var trEle=document.createElement("tr");
+        var tdEle1=document.createElement("td");
+        var tdEle2=document.createElement("td");
+        var tdEle3=document.createElement("td");
+        var tdEle4=document.createElement("td");
+        tdEle1.innerHTML=name;
+        tdEle2.innerHTML=phone;
+        tdEle3.innerHTML=sex;
+        tdEle4.innerHTML="<a href='javascript:;'>删除</a>"
+        trEle.appendChild(tdEle1);
+        trEle.appendChild(tdEle2);
+        trEle.appendChild(tdEle3);
+        trEle.appendChild(tdEle4);
+        tableNode.children[0].appendChild(trEle);
+        for(var j=0;j<tagA.length;j++){
+        tagA[j].onclick=del;
+    }
+    }
+    // 添加删除事件 我们可以确定点击的节点 可以用 parentNode获取元素的父节点
+    function del(){
+            var r=confirm("删除");
+            if(r){
+                tableNode.children[0].removeChild(this.parentNode.parentNode);
+            }
+    }
+    for(var j=0;j<tagA.length;j++){
+        tagA[j].onclick=del;
+    }
+    
+    // 两个问题：如何确定点击事哪一行，然后删除本行 解决方案，用this 就可以确定到是哪一行，然后用parentNode确定到这一行 直接删除整行即可
+            // 如何添加更新a标签的数组 解决方案，在添加函数里也加入给 删除添加事件的循环
+
+            // 删除有确认取消提示 使用confirm(text)实现 confirm有返回值，返回值为true确认 ，false为取消。
+    </script>
+</body>
+</html>

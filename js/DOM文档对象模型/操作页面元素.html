@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="test" id="test" style="width: 888px;height: 888px;background-color: bisque;">zhehsitest</div>
+    <!-- 操作页面元素getAttritube("属性名"));
+                   setAttritube("属性名","属性值");
+                   removeAttritube("属性名");
+    当然这些操作都是基于对某个元素的，因为我们先要获取元素
+  
+    只操作style属性
+    ①元素名.style.css属性='属性值';
+    当要操作多个css属性时，
+    ②元素名.style.cssText='css属性和值，格式和css里写的一样';
+    注意，当使用第一种方式时 ，对于有-连接的属性，要使用驼峰命名法改写，如background-color 要写成backgroundColor
+    -->
+    <script>
+           var testDiv=document.getElementById('test');
+           var attri=testDiv.getAttribute('style');
+           console.log(attri);
+           testDiv.setAttribute('style','font-szie:33px')
+           testDiv.removeAttribute('style');
+           testDiv.style.backgroundColor='#b0b0b0';
+           testDiv.style.cssText='background-color:#ef6700';
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            border-radius: 20px;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 200px;
+            background-color: chartreuse;
+            position: absolute;
+            top: 300px;
+            left: 300px;
+            z-index: 300;
+        }
+    </style>
+</head>
+<body>
+    <div id="box2"></div>   
+    <div id="box1"></div>
+<script>
+    // 拖拽事件的分析 鼠标点击到对象，然后鼠标开始移动，鼠标松开，结束拖拽
+    // 那么久涉及到三个事件，mousedown mousemove mouseup 鼠标点击 然后 mousemove生效 松开 mousemove失效 同时 mouseup也失效
+    var box=document.getElementById("box1");
+    var box2=document.getElementById("box2");
+    function drag(obj){
+        obj.onmousedown=function(event){
+        event=event||window.event;
+        var ol=event.clientX-obj.offsetLeft;
+        var ot=event.clientY-obj.offsetTop;
+        // 移动事件生效
+        document.onmousemove=function(event){
+            event=event || window.event;
+            var x=event.clientX-ol;
+            var y=event.clientY-ot;
+            obj.style.left=x+"px";
+            obj.style.top=y+"px";
+            
+        }
+        document.onmouseup=function(){
+               document.onmousemove=null;
+               document.onmouseup=null;
+    }
+    return false;
+    } 
+    }
+    drag(box);
+    drag(box2);
+/* 
+
+offsetLeft是基于上层元素的，与style.left的区别是 前者返回的是数字 后者返回的是字符串还带有单位，
+同时前者只能读取，而后者可以读还能写
+然后还可以将鼠标的拖拽事件分装成函数
+
+*/
+</script>
+</body>
+</html>

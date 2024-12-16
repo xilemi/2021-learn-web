@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 求数组的和，最大值，最小值 -->
+    <script>
+        var arr = [80,70,86,58,90,35,89,67,50,99];
+        var min=arr[0];//初始化最小值
+        var max=arr[0];//初始化最大值
+        // 求和
+        var sun=0;
+        for(var i in arr){
+            sun+=arr[i]
+        }
+        console.log(sun);
+         // 求最小值
+        for(var i=0;i<arr.length;i++){
+            if(min>=arr[i]){
+                min=arr[i];
+            }
+        }
+        console.log("最小值为"+min);
+        // 求最大值
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]>=max){
+                max=arr[i];
+            }
+        }
+        console.log("最大值为"+max);
+    </script>
+</body>
+</html>

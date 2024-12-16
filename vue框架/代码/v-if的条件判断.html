@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 输入学生成绩返等级 -->
+    <!-- 这种写法很繁琐 -->
+    <!-- <div id="app">
+        <h2 v-if='scroe>=90'>优秀</h2>
+        <h2 v-else-if='scroe>=80'>优秀</h2>
+        <h2 v-else-if='scroe>=60'>及格</h2>
+        <h2 v-else>不及格</h2>
+    </div> -->
+    <!-- 正常的写法是在方法里判断，这里输出结果即可 -->
+    <div id="app">
+        <h2>{{test()}}</h2>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                scroe:99
+            },
+            methods: {
+                test(){
+                    let type;
+                    if(this.scroe>=90){
+                      type="优秀";
+                    }
+                    else if(this.scroe>=80){
+                        type= "良好";
+                    }
+                    else if(this.scroe>=60){
+                        type = "及格"
+                    }
+                    else{
+                        type ="不及格";
+                    }
+                    return type;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

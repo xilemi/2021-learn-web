@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <!--这里的onclick=""就是鼠标点击后的时间，这里是调用函数，所以函数内应该写实参 -->
+    <button onclick="sun(num1,num2)">确认</button>
+    <script>
+        // 1.对象的方式创建函数
+        var fun1=new Function("console.log('我是对象创建的函数');");
+        // 2.函数声明创建函数
+        function fun2(){
+            console.log("我是函数声明创建的函数");
+        }
+        // 3.函数表达式创建函数
+        var fun3= function(){
+            console.log("我是匿名函数");
+        }
+        fun1();
+        fun2();
+        fun3();
+        // 函数的参数问题
+        function sun(a,b){
+            // var n1=parseInt(document.getElementById("num1").value);
+            // var n2=parseInt(document.getElementById("num2").value);
+            // console.log(n1);
+            // console.log(n2);
+            
+            // var c=n1+n2;
+            return a+b;
+            // 为什么需要返回值？函数应该只进行函数的操作，这些输出以及对结果的处理
+            //   应该放在外面，同时也可以使得结果更加容易被处理，还有函数return后面就不会被执行了
+        }
+        // parseInt()是将数据转换为number型，prompt是弹框输入。
+        // var num1=parseInt(prompt());
+        // var num2=parseInt(prompt());
+        var num1=100,num2=1000;
+    </script>
+</body>
+</html>

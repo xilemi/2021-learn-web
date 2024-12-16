@@ -1,0 +1,113 @@
+/* 导航栏开始 */
+.nav-bar{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    flex-direction: row;
+    
+    background-color:#ef4242;
+}
+.nav-bar span{
+    font-size: 30px;
+    color: #F4FFFF;
+
+}
+.arrow{
+    width: 60px;
+    height: 60px;
+}
+.title{
+    height: 60px;
+    font-size: 20px;
+    flex-grow: 1;
+}
+.search{
+    width: 60px;
+    height: 60px;
+}
+/* 导航栏结束 */
+/* 菜单开始 */
+.menu{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    font-size: 16px;
+    margin-bottom: 20px;
+    align-items: center;
+    background-color: #fff;
+}
+.menu>div{
+    flex-grow: 1;
+    width: 20%;
+}
+.menu>div img{
+    width: 25%;
+    min-width: 50px;
+}
+/* 菜单结束 */
+/* 美食开始 */
+.food{
+    width: 100%;
+    height: 125px;
+    font-size: 16px;
+    background-color: #fff;
+    align-items: center;
+    border-bottom: 1px solid #f2f4f5;
+    display: flex;
+}
+.food>div{
+    height: 80px;
+    border-left: 1px solid #f2f4f5;
+    flex-grow: 1;
+}
+.food>div img{
+    width: 25%;
+    min-width: 30px;
+}
+/* 美食结束 */
+/* 服务开始 */
+.service{
+    width: 100%;
+    height: 125px;
+    display: flex;
+    font-size: 16px;
+    margin-bottom: 20px;
+    align-items: center;
+    background-color: #fff;
+}
+.service>div{
+    height: 80px;
+    flex-grow: 1;
+    border-left: 1px solid #f2f4f5;
+}
+/* 服务结束 */
+/* 为你优选开始 */
+.recommend{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #fff;
+}
+.wrap{
+    width:90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+.recommend-title{
+    width: 100%;
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+.wrap>div{
+    flex-grow: 1;
+}
+.wrap img{
+    width: 30%;
+    height: 25%;
+}
+/* 为你优选结束*/
+

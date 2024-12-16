@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为对象选择器</title>
+    <style>
+          /* ::before|::after配合content使用,内容写在双引号内，要为双引号的内容写css时直接在后面写格式*/
+        /* .item::before{
+            content: "不能识别空格,";
+        }
+        .item::after{
+            content: "这是在后面插入";
+        } */
+        /* content还可以包含图片 */
+        /* .item::before{
+           content: url(meizu/ia_100000028.jpg);
+        } */
+        /* 空内容，后面写样式,display:block 将行内元素转换为块级元素*/
+        .item::after{
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: beige;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="item">这是一个盒子，后面再接一个盒子</div>
+</body>
+</html>

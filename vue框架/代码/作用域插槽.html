@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 作用域插槽是，当数据在组件里的时候，想要在标签中使用这个数据那么在模板里套上slot 并加上动态一个属性，并且将数据给这个属性
+    在标签里用slot-scope接收 -->
+    <div id="app">
+        <cpn></cpn>
+        <cpn>
+            <div slot-scope="data">
+                <!-- 接收时需要用 一个标签套着 -->
+                <span v-for='item in data.data' >{{item}}-</span>
+                <br>
+                <span>{{data.data.join('-')}}</span>
+            </div>
+        </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <slot :data='names'>
+                <ul>
+                    <li v-for='item in names'>{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            components:{
+               cpn:{
+                template:'#cpn',
+                data() {
+                    return {
+                        names:['喜乐','狮子王','辛巴','老八','黑虎'],
+                    }
+                },
+                created() {
+                    this.names.join();
+                },
+               }
+            },
+        })
+    </script>
+</body>
+</html>

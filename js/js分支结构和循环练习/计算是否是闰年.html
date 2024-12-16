@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 计算是否是闰年 -->
+    <!-- 闰年的判断条件是年份能被4整除且不能被100整除  或者能被400整除 -->
+    <script>
+        var year=prompt("请输入年份：");
+        /* if((year%4==0&&year%100!=0)||year%400==0){
+            document.write("是闰年");
+        }
+        else{
+            document.write("不是闰年");
+        } */
+        // 这种写法是将或条件拆开使用else if
+        if(year%4==0&&year%100!=0){
+            document.write("是闰年");
+        }
+        else if(year%400==0){
+            document.write("是闰年");
+        }
+        else{
+            document.write("不是闰年");
+        }
+    </script>
+</body>
+</html>

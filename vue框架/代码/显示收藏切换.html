@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='show()' v-text='attention'></button>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app= new Vue({
+            el:"#app",
+            data() {
+                return {
+                    isAttention:false,
+                    attention:'关注',
+                }
+            },
+            methods: {
+                show(){
+                    if(this.isAttention==false){
+                        this.isAttention=!this.isAttention
+                        this.attention='已关注'
+                    }
+                    else if(this.isAttention==true){
+                        this.isAttention=!this.isAttention
+                        this.attention='关注'
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>

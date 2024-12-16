@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#swiper{
+    width: 1246px;
+    height: 480px;
+    background-color:pink;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+}
+#imgList{
+    width: 4984px;
+    height: 480px;
+    list-style: none;
+    position: absolute;
+    /* left: 0px; */
+}
+#imgList li{
+    float: left;
+    padding: 10px;
+}
+/* 导航点样式 */
+#navD{
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+#navD a{
+    width: 10px;
+    height: 10px;
+    float: left;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: #fff;
+    margin-right: 10px;
+    border: 1px solid black;
+}
+#navD a:hover{
+    background-color: pink;
+}

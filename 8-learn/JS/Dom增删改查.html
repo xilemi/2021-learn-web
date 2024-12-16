@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #city{
+            width: 800px;
+            /* height: 200px; */
+            /* background-color: cornflowerblue; */
+            margin: 0 auto;
+            list-style: none;
+            border: 1px solid cornflowerblue;
+            overflow: hidden;
+        }
+        #city li{
+            width: 50px;
+            height: 50px;
+            margin: 75px 20px;
+            background-color:#ef6700;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            overflow: hidden;
+        }
+        .btn{
+            text-align: center;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn">
+        <input type="text" id="add">
+        <button onclick="add()">添加</button>
+        <br>
+        <input type="text" id="del">
+        <button onclick="del()">删除</button>
+        <br>
+        <input type="text" id="alter">
+        <button onclick="atle()">修改</button>
+    </div>
+    <div id="city">
+        <li>湖北</li>
+        <li id="wh">武汉</li>
+        <li>北京</li>
+        <li>上海</li>
+    </div>
+    <script>
+    //    定义函数 往div里添加城市节点
+    // 1.创建文本节点createTextNode
+    // 2.创建元素节点createElement
+    // 3.将文本节点添加到元素节点appendChild
+    // 4.将元素节点添加到父节点
+    // 获取父节点
+    var city=document.getElementById("city");
+    // 首先获取到city的所有的子节点的文本 
+    var cityNodes=document.getElementById("city").children;
+    function add(){
+        var txt=document.getElementById("add").value;
+        // 将输入的文本作为创建文本节点的参数
+        var textNode=document.createTextNode(txt);
+        // 创建元素节点
+        var ele=document.createElement("li");
+        ele.appendChild(textNode);
+        city.appendChild(ele);
+        document.getElementById("add").value="";
+        // 所以获取输入框的值到底是 value 还是 innerHTML
+        // value获取的是当前值，也就是当前写的什么就是什么，而innerHTML是初始值，是html文档中的值，和输入框内的值是不同的。
+    }
+    function del(){
+        // 获取输入需要删除的城市文本
+        var delCity=document.getElementById("del").value;
+        for(var i=0;i<cityNodes.length;i++){
+            if(cityNodes[i].innerHTML==delCity){
+                // 删除子节点removeChildren
+                city.removeChild(cityNodes[i]);
+            }
+        }
+    }
+    // 修改城市名 定义一个点击函数，点到那个li返回他的 html节点
+   function atle(){
+    var i=0
+    for(i;i<cityNodes.length;i++){
+           cityNodes[i].onclick=function(){
+            var alTxt=document.getElementById("alter").value;
+                // 将输入的文本作为创建文本节点的参数
+            var textNode=document.createTextNode(alTxt);
+                // 创建元素节点
+            var ele=document.createElement("li");
+            ele.appendChild(textNode);
+            city.replaceChild(ele,this);
+            document.getElementById("alter").value="";
+            // 或者直接使用这种方式修改html内容
+            // this.innerHTML=alTxt;
+           }
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位移旋转</title>
+    <style>
+        /* 
+        位移transform属性中的translate（x,y）单位都是px
+                        rotate（deg）旋转角度 单位deg
+                        当旋转和位移同时存在时，把位移在前，旋转在后
+        transform_origin 修改中心点
+        
+        
+        */
+    .box{
+        width: 300px;
+        height: 500px;
+        position: relative;
+        top: 200px;
+        left: 400px;
+    }
+    .box>img{
+        /* transform: rotate(-20deg); */
+        /* transition-property: translate;
+        transition-duration: 3s;
+        transition-timing-function: ease-out;
+        transition-delay: 3s; */
+        /* 修改中心位置 */
+        transform-origin: left top;
+    }
+    
+    .box>img:hover{
+        /* 一般先位移在旋转 */
+        transform:translate(800px,60px);
+    }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="baidu.png" alt="">
+    </div>
+</body>
+</html>

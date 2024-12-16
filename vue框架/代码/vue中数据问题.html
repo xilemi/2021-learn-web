@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app0">{{test0}}</div>
+    <div id="app1">{{fun()}}</div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app0 = new Vue({
+            el:'#app0',
+            data:{
+                test0:999,
+            },
+        })
+        const app1= new Vue({
+            el:'#app1',
+            data:{
+                test1:0
+            },
+            methods: {
+                fun(){
+                    this.test1=app0.test0;
+                    return this.test1;
+                }
+            },
+        })
+        // 结论 不同的对象中的数据是可以互通的
+    </script>
+</body>
+</html>

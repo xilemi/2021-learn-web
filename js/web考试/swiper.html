@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>徐志摩</h3>
+    <p>徐志摩,（1897年1月15日～1931年11月19日）,浙江海宁市硖石镇</p>
+    <p>人，现代诗人、散文家、原名章垿，字槱森，留学美国时改名志</p>
+    <p>摩。</p>
+    <p>1915年毕业于杭州一中，先后就读于上海沪江大学、天津北洋大学</p>
+    <p>和北京大学。</p>
+    <p>1921年赴英国留学，入剑桥大学当特别生，研究政治经济学。</p>
+    <p>1926年，任光华大学教授、大夏大学和南京大学中央大学教授。</p>
+    <p>1931年11月19日飞机失事遇难。代表作品有《再别康桥》《翡冷翠的一夜》</p>
+    <img src="xuzhimo1.jpg" alt="" id="bookImg">
+    <script type="text/javascript">
+        var bookImgArr=["xuzhimo1.jpg","xuzhimo2.jpg","xuzhimo3.jpg"];
+        var img=document.getElementById("bookImg");
+        var i=0;
+           img.onclick=function(){
+               i++;
+               if(i>=3){
+                   i=0;
+               }
+               img.src=bookImgArr[i];
+           }
+        
+        self.setInterval("img.onclick()",2000)
+    </script>
+</body>
+</html>

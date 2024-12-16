@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date= new Date();
+// 返回从1970 0 0 0 0开始到现在的时间 单位是毫秒
+        console.log(date.getTime());
+        // 返回日
+        console.log(date.getDate());
+        // 返回周 0-6 周天是0 
+        console.log(date.getDay());
+        // 返回月 从 0开始数的 因此需要+1
+        console.log(date.getMonth());
+        // 返回年
+        console.log(date.getFullYear());
+        // 返回几点 24小时制的
+        console.log(date.getHours());
+        // 返回分钟
+        console.log(date.getMinutes());
+        // 返回秒
+        console.log(date.getSeconds());
+        // 返回毫秒
+        console.log(date.getMilliseconds());
+        // 返回几点几分
+        console.log(date.toTimeString());
+        // 返回年月日
+        console.log(date.toLocaleDateString());
+    </script>
+</body>
+</html>

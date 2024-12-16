@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            position: absolute;background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" style="left:50px; top: 50px;;"></div>
+    <script>
+        /* 
+        思路：把控制移动和控制方法分开控制，让控制移动用定时器，控制方向用键盘功能
+        */
+        var box=document.getElementById("box1");
+        var dir=0;
+        var x=parseInt(box.style.left);
+        var y=parseInt(box.style.top);
+        document.onkeydown=function(event){
+            dir=event.keyCode;
+        }
+        var start= setInterval(function(){
+                var speed=6
+                switch(dir){
+                    case 37:
+                        if(x>=0){
+                            x=x-speed;
+                        }
+                        break;
+                    case 38:
+                        if(y>=0){
+                            y=y-speed;
+                        }
+                        break;
+                    case 39:
+                        x=x+speed;
+                        break;
+                    case 40:
+                        y=y+speed;
+                        break;
+                }
+                box.style.left=x+"px";
+                box.style.top=y+"px";  
+            },1);
+            document.onkeyup=function(){
+                dir=0;
+            }
+    </script>
+</body>
+</html>

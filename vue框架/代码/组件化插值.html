@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 组件化，相当于将一些板块定义成模板，能够进行复用，但是不是复用都是一样的，那么我们就可以solt进行插值修改 -->
+    <div id="app">
+        <!-- 默认是将模板中的slot都给替换掉，那么如何替换掉指定的呢 -->
+        <!-- 给模板中预留的slot插槽加上name属性 在使用组件标签时 添加的标签加入slot属性 -->
+             <cpn0>
+                 <h1 slot="one">修改第一个插槽</h1>
+                <h2 slot="two">修改第二个插槽</h2> 
+           
+            </cpn0>
+    </div>
+    <template id="cpn">
+    <div>    
+            <slot name='one'></slot>
+            <button>左</button>
+            <slot name='two'></slot>
+            <button>右</button>
+        </div>
+    </template>
+    <script src="../vue/vue.js"></script>
+    <script>
+            Vue.component("cpn0",{
+                template:"#cpn",
+            })
+        const app =new Vue({
+            el:'#app',
+
+        })
+    </script>
+</body>
+</html>

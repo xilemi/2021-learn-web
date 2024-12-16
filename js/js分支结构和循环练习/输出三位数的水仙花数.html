@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 水仙花数 每个数位上的数字的三次方的和等于这个 -->
+    <script>
+        
+        document.write("利用for循环得到三位数 i，j，k直接定义为每个数位数字<br/>")
+        for(var i=1;i<=9;i++){
+            for(var j=0;j<=9;j++){
+                for(var k=0;k<=9;k++){
+                    var num=100*i+10*j+k;
+                    if(num==i*i*i+j*j*j+k*k*k){
+                        document.write(num);
+                        document.write("<br/>");
+                    }
+                }
+            }
+        }
+        document.write("通过取余来获取每个数位数字<br/>")
+        for(var i=100;i<1000;i++){
+        //    个位数字
+        var k=i%10;
+        // 十位数字
+        var j=parseInt(i/10)%10;
+        // 百位数字
+        var m=parseInt(i/100);
+        if(i==m*m*m+j*j*j+k*k*k){
+            document.write(i);
+            document.write("<br/>");
+        }
+        }
+    </script>
+</body>
+</html>

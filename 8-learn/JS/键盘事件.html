@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input1"></input>
+    <p id="msg"></p>
+<script>
+    var input=document.getElementById("input1");
+    var msg=document.getElementById("msg");
+    // 键盘按下事件
+   /*  input.onkeydown=function(){
+            msg.innerHTML=input.value;
+    } */
+    // 键盘抬起事件
+    /* input.onkeyup=function(){
+        console.log("输入完成了");
+    } */
+    // 键盘事件一般只能用于有焦点的对象
+    // 组合按键的输入 有 altKey shiftKey ctrlKey 这么几个 其他的是Unicode码 来实现的 记得切换输入法 汉字和字母的编码
+    input.onkeydown=function(event){
+       /* if(event.keyCode===68 && event.ctrlKey){
+           console.log("我是同时输入的");
+       } */
+          console.log(event.keyCode==72);
+    }
+</script>
+</body>
+</html>

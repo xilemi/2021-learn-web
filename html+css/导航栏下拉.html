@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏下拉练习</title>
+    <style>
+        .nav{
+            width: 100%;
+            height: 40px;
+            background-color:#ef6700;
+            cursor: pointer;
+        }
+        p{
+            line-height: 40px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .nav-list{
+            width: 100%;
+            height: 0;
+            background-color:blanchedalmond;
+            text-align: center;
+            overflow: hidden;
+            transition: all .3s;
+        }
+        .nav:hover>.nav-list{
+            height: 200px;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <p>这是一个导航栏，鼠标放在上面会下拉</p>
+        <div class="nav-list">这是会下拉的</div>
+    </div>
+</body>
+</html>

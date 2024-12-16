@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 标准：根据年龄和成绩给学生评价:如果年龄 大于20岁，60分及以上给及格，60分以下告知回去准备补考；如果年龄小于20岁，成绩大于等于60分，夸奖他是个天才，如果成绩低于60分，告诉他不要气馁 -->
+     <script>
+         var age=parseInt(prompt("请输入年龄"));
+         var grades=parseFloat(prompt("请输入成绩"));
+         if(age>20){
+             if(grades>60){
+                 alert("及格");
+             }
+             else{
+                 alert("回去准备补考");
+             }
+         }
+         else{
+             if(grades>60){
+                 alert("你他娘的是个天才");
+             }
+             else{
+                 alert("不要气馁");
+             }
+         }
+     </script>
+</body>
+</html>

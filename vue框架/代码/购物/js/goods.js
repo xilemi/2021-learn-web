@@ -1,0 +1,65 @@
+const goods =new Vue({
+    el:'#goods',
+    data:{
+        books:[
+          {
+              id:1,
+              name:'linux',
+              author:'王某',
+              price:49.80,
+              date:'2005-08',
+              count:0,
+          },
+          {
+              id:2,
+              name:'centos',
+              author:'李某',
+              price:29.80,
+              date:'1905-08',
+              count:0,
+          },
+          {
+              id:3,
+              name:'win',
+              author:'张某',
+              price:58.80,
+              date:'2035-08',
+              count:0,
+          },
+          {
+              id:4,
+              name:'Debian',
+              author:'孙某',
+              price:78.80,
+              date:'2205-08',
+              count:0,
+          },
+          {
+              id:5,
+              name:'macOS',
+              author:'胡某',
+              price:99.80,
+              date:'2055-08',
+              count:0,
+          },
+        ]
+    },
+    methods: {
+        addGoods(index){
+            if(shopcar.car.indexOf(this.books[index])==-1){
+                shopcar.car.push(this.books[index]);
+                this.books[index].count++
+            }
+            else{
+                this.books[index].count++
+            }
+            alert("添加成功");
+        }
+    },
+    filters:{
+        // 为商品价格添加过滤器
+        priceFilter(price){
+            return "￥" + price.toFixed(2);
+        }
+    },
+})

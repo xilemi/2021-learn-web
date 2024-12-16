@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 高级函数使用 filter map reduce -->
+    <!-- filter直接筛选出需要的元素 -->
+    <script src="../vue/vue.js"></script>
+    <script>
+        const arr=[11,34,7788,'sdf','333',7,75,6744];
+        // 筛选出小于100的元素，并加入新的数组
+        const arrNew=arr.filter(function(n){
+            return n<100;
+        })
+        console.log(arrNew);
+        // 将得到新的数组的元素乘以10
+        const arrNew1=arrNew.map(function(n){
+            return n*10
+        })
+        console.log(arrNew1);
+         const total=arrNew1.reduce(function(preValue,n){
+            return preValue+n;
+         },0)
+        console.log(total);
+        // 全部写在一起
+        let total1=arr.filter(function(n){
+            return n<100
+        }).map(function(n){
+            return n*10
+        }).reduce(function(preValue,n){
+        return preValue+n;
+        },0)
+        console.log(total1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- 生成平行四边形的，先来一个等腰直角三角形站位，再每行输出相同个数字符 -->
+    <script>
+        // 左上角突出
+      /* for(var i=1;i<=4;i++){
+        //   倒三角
+          for(var j=1;j<=5-i;j++){
+              document.write("<span>*</span>");
+          }
+          for(var k=1;k<=5;k++){
+              document.write('*&nbsp');
+          }
+          document.write("<br/>");
+      } */
+// 输出右下角突出的梯形
+for(var i=1;i<=4;i++){
+    // 正三角
+          for(var j=1;j<=i;j++){
+              document.write("<span>*</span>");
+          }
+          for(var k=1;k<=5;k++){
+              document.write('*&nbsp');
+          }
+          document.write("<br/>");
+      }
+    </script>
+</body>
+</html>

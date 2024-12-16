@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 只渲染一次 后续再修改不会再进行实时改变-->
+    <div id="app" v-once>{{message}}</div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                message:'只渲染一次',
+            }
+        })
+    </script>
+</body>
+</html>

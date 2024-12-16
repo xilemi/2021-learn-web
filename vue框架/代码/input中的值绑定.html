@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在input里的value的值是作为返回值的，因此这个值不太可能是定义好的，当这个值存在数组中时，应该如何写input标签呢 -->
+    <!-- 使用v-for循环将数据遍历到input中，添加label让用户体验更好，给label添加 for属性才能识别 由于数据时遍历的 所以对 for id动态绑定 v-bind -->
+    <div id="app">
+        <label :for="item" v-for='item in sports'>
+            <input type="checkbox" :value="item" v-model='selected' :id="item">{{item}}
+        </label>
+        <h2>您选中的有{{selected}}</h2>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                sports:['足球','篮球','乒乓球','排球','羽毛球'],
+                selected:[],
+            }
+        })
+    </script>
+</body>
+</html>

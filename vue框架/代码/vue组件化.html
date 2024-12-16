@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue组件化使得界面更好的复用
+    使用步骤：
+    注册组件
+    Vue.component(mycpnC,{}) 前面为构造器取名 后面构造器对象
+    3实例范围内使用 构造器取名为标签名
+    具体使用 -->
+    <div id="app">
+        <!-- 对于APP是子节点 -->
+        <cpn0 v-for='item in test1' :aaa='item' :key='item'></cpn0>
+        <!-- 对于app是子节点 于 cpn0是兄弟节点 -->
+        <!-- cpn1是child的父节点 获得child的money数据-->
+        <cpn1></cpn1>
+        <button>得到子节点数据</button>
+        
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        //全局组件 
+        Vue.component('cpn0',{
+            template:`
+            <div>
+                <h2 v-show='isShow'>这是第一个组件化{{aaa}}</h2>
+                <p v-show='isShow'>组件化能够更好的复用</p>
+                <p v-show='isShow'>简化代码</p>
+                <button @click='isShow=!isShow'>按钮</button>
+                </div>`,
+            data() {
+                return {
+                    test:['test1','test9','test3'],
+                    isShow:'true',
+                }
+            },
+            props:{
+                aaa:{
+                    type:Number,//定义类型
+                    default:'000000'//默认值
+                }
+            },//接收父组件给的值 aaa是取的名字 而子组件中写aaa属性
+            methods: {
+                
+            },
+        });
+        //全局组件中再写一个父节点
+        Vue.component('cpn1',{
+            template:`
+            <div>
+                <div>cpn1这是全组组件，模板中只能有一个根节点</div>
+            <cpn></cpn>
+            <child :bbb='test2' v-on:btn="fatherclick"></child>
+
+            </div>
+            `,
+            data() {
+                return {
+                    test2:1111,
+                }
+            },
+            methods: {
+                fatherclick(item){
+                      console.log("我是父节点----"+item)
+                }
+
+            },
+            //对于myCpn1是局部组件，只能在myCpn1中使用
+            components:{
+                cpn:{
+                    template:`
+                    <div>cpn这是个局部组件，只能在父组件中使用，不能别的组件中使用</div>
+                    `
+                },
+                
+            },
+        })
+            Vue.component('child',{
+                template:`
+                <div>child{{bbb}}
+                    <button v-for='item in money' @click='childclick(item)'>{{item}}</button>
+                    </div>
+                
+                `,
+                data() {
+                    return {
+                        money:[999,9998,7777],
+                    }
+                },
+                props:{
+                    bbb:{
+                        type:Number,
+                    }
+                },
+                methods: {
+                    childclick(item){
+                        this.$emit('btn',item);
+                    }
+                },
+            })
+        // 将test1的值传入cpn0和cpn1 父节点向子节点传输数据  在子节点中props定义一个接受者 参数时接受者名字 然后在子节点中以接受者的名字写一个属性
+        const app = new Vue({
+            el:'#app',
+            data:{
+                test1:[1111,2222,333],
+            }
+        })
+    </script>
+
+</body>
+</html>

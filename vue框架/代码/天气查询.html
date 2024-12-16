@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search{
+             width: 500px;
+             height: 100px;
+             margin: 300px auto 0;
+             text-align: center;
+        }
+        input{
+            width: 400px;
+            height: 48px;
+            border-radius: 10px;
+            outline: 0;
+            border: 1px solid blue;
+            box-sizing: border-box;
+            vertical-align: top;
+            font-size: 20px;
+            
+        }
+        button{
+            width: 70px;
+            height: 48px;
+            background-color: cornflowerblue;
+            border:1px solid blueviolet;
+            border-radius: 10px;
+            font-size: 20px;
+            
+        }
+        .view{
+            width: 500px;
+            height: 300px;
+            background-color: burlywood;
+            border-radius: 10px;
+            margin: 20px auto;
+            font-size: 20px;
+            display: none;
+        }
+        .view p{
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <div class="search">
+        <input type="text" v-model="city">
+        <button @click="search">查询</button>
+       </div>
+       <div class="view">
+            <p>城市:{{this.city}}</p>
+            <p>时间:{{weather.time}}</p>
+            <p>天气:{{weather.weather}}</p>
+            <p>温度:{{weather.temp}}</p>
+            <p>风向:{{weather.wD}}{{weather.wS}}</p>
+       </div>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      const app=new Vue({
+         el:'#app',
+         data() {
+             return {
+                 city:'',
+                 citys:'',
+                 weather:'',
+             }
+         },
+         methods: {
+             search:function(){
+                axios.get("citys.json",{}).then(res=>{
+                    this.citys=res.data;
+                    var cityNum=this.citys.filter((c)=>{
+                        if(c.cityName===this.city){
+                            return c
+                        }
+                    })
+                axios.get("http://aider.meizu.com/app/weather/listWeather",{
+                    params:{
+                        cityIds:cityNum[0].cityCode,
+                    }
+                }).then(res=>{
+                    this.weather=res.data.value[0].realtime;
+                    var view=document.getElementsByClassName("view");
+                    view[0].style.display="block";
+                })
+                })
+
+             }
+         },
+      })
+    </script>
+</body>
+</html>

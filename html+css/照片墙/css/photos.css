@@ -1,0 +1,78 @@
+.wrap{
+    width: 800px;
+    height:400px;
+    margin: 50px auto 100px;
+    position: relative;
+}
+.title{
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+}
+/* 公共属性 */
+img{
+    width: 100%;
+    /* 不要在hover里加transition属性，离开时就没有时就没有transition属性了 */
+    transition: all 1s;
+}
+.wrap div{
+    width: 200px;
+    position: absolute;
+    text-align: center;
+    border: 5px solid #fff;
+    overflow: hidden;
+    /* 不要在hover里加transition属性，离开时就没有时就没有transition属性了 */
+    transition: all 1s;
+}
+/* 公共属性结束 */
+/* 固定每张照片的位置开始 */
+.one{
+    top: 20px;
+    left: 25px;
+    transform:rotate(-20deg);
+}
+.two{
+    top: 200px;
+    left: 150px;
+    transform:rotate(-16deg);
+}
+.three{
+    top: 20px;
+    left: 450px;
+    transform: rotate(29deg);
+}
+.four{
+    top: 270px;
+    left: 20px;
+    transform:rotate(-23deg);
+}
+.five{
+    top: 270px;
+    left: 370px;
+    transform:rotate(-23deg);
+}
+.six{
+    top: 200px;
+    left: 350px;
+    transform:rotate(-23deg);
+}
+.seven{
+    top: 20px;
+    left: 350px;
+    transform:rotate(-23deg);
+}
+/* 固定每张照片位置结束 */
+/* 盒子旋转，缩放 */
+.one:hover,.two:hover,.three:hover,.four:hover,.five:hover,.six:hover,.seven:hover{
+    box-shadow: 0 15px 30px #f2f4f5;
+    transform:  scale(1.1);
+    z-index: 999;
+}
+/* 照片缩放 */
+img:hover{
+    box-shadow: 0 15px 30px #f2f4f5;
+    /* 没有写rotate属性时，默认为rotate（0deg） */
+    transform: scale(1.2);
+    z-index: 999;
+}
+

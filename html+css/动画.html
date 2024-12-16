@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        /* 动画@keyframes name来声明一个动画 name是放在需要动画的元素里边的css属性里 利用animation name属性来引用，属性有持续时间duration 开始时间delay 动画速度timing-function 循环次数iteration-count 直接用animation来简写属性不考虑顺序*/
+        @keyframes testone {
+            from{
+                transform: scale(1.5);
+            }
+            /* 缩放 */
+            20%{
+                transform: scale(2);
+            }
+            /* 位移 */
+            30%{
+                transform: translateX(500px);
+            }
+            /* 倾斜 */
+            40%{
+                transform: skew(40deg);
+            }
+            /* 旋转 */
+            50%{
+                transform: scale(1);
+            }
+            60%{
+                transform: rotate(30deg);
+            }
+            70%{
+                transform: scale(1.2);
+                transform: rotate(90deg);
+            }
+            80%{
+                transform: rotate(1.9);
+            }
+            100%{
+                transform: rotate(50deg);
+            }
+        }
+    .test{
+        width: 200px;
+        height: 200px;
+        animation: testone 4s ease-in 5;
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+    <div class="test">
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            height: 200px;
+        }
+        .goods{
+            width: 200px;
+            height: 240px;
+            background-color: burlywood;
+            float: left;
+            margin-left: 20px;
+            list-style: none;
+            
+        }
+        .shopCar{
+            width: 200px;
+            height: 240px;
+            margin-left: 60px;
+            float: left;
+            background-color: chartreuse;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 将书本信息定于为一个对象，将多本书存在数组中，数组中套嵌对象 -->
+    <div id="app">
+        <ul>
+            <li v-for='(item,index) in books' class="goods">
+                <p>书本编号:{{item.id}}</p>
+                <p>书本名字:{{item.name}}</p>
+                <p>书本价格:{{item.price|showPrice}}</p>
+                <p>编号:{{index}}</p>
+                <p>书本数量:{{getAmount(index)}}</p>
+                <button v-on:click='buy(index)'>购买</button>
+                <button v-on:click='reduce(index)'>删除</button>
+            </li>
+            <li class="shopCar" >
+                <p>购买总数{{getShopNum}}</p>
+                <p>购买总价{{getTotal|showPrice}}</p>
+            </li>
+        </ul>
+        
+    </div>
+    
+    <script src="../vue/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el:'#app',
+            data:{
+                books:[
+                {id:110,name:'linux',price:99,amount:0},
+                {id:111,name:'ubuntu',price:68,amount:0},
+                {id:112,name:'cents',price:72,amount:0},
+                {id:113,name:'windows',price:87,amount:0},
+                {id:114,name:'macos',price:49,amount:0}],
+            },
+            methods: {
+                getAmount:function(index){
+                    return this.books[index].amount;
+                },
+                buy:function(index){
+                    this.books[index].amount++
+                },
+                reduce:function(index){
+                    //缺少商品数量为负数的限制
+                    // 等于0时会一直为0，否则的话就自减1
+                    if(this.books[index].amount===0){
+                        this.books[index].amount=0;
+                    }
+                    else{
+                        this.books[index].amount--;
+                    }
+                },
+                getBooksName:function(index){
+                    return this.books[index].name;
+                }
+                
+            },
+            computed: {
+                /* getShopNum:function(){
+                    let totalNum=0;
+                    for(var i=0;i<this.books.length;i++){
+                        totalNum+=this.books[i].amount;
+                    }
+                    return totalNum;
+                }, */
+                getShopNum(){
+                    return this.books.reduce(function(preValue,book){
+                        return preValue+book.amount;
+                    },0)
+                },
+
+                /* getTotal:function(){
+                    let totalPrice=0;
+                   for(var i=0;i<this.books.length;i++){
+                       totalPrice+=this.books[i].amount*this.books[i].price;
+                }    
+                return totalPrice;
+            }, */
+            getTotal(){
+                return this.books.reduce(function(preValue,book){
+                       return preValue+book.price*book.amount;
+                },0)
+            }
+        },
+        filters:{
+            showPrice(price){
+                return '￥' +price.toFixed(2);
+            }
+        }
+         })
+    </script>
+</body>
+</html>

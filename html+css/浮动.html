@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        .box{
+            width: 100%;
+            background-color: aquamarine;
+            /* overflow: hidden; */
+        }
+        .one{
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            float: left;
+            
+        }
+        .two{
+            width: 20px;
+            height: 20px;
+            background-color:blueviolet;
+            float: left;
+            
+        }
+        .three{
+            width: 30px;
+            height: 30px;
+            background-color: cornflowerblue;
+            float: left;
+            
+        }
+        .box1{
+            /* 受影响元素，本身是在下面，结果跑到上面为受影响元素 */
+            width: 100%;
+            height: 100px;
+            background-color: cyan;
+            /* clear: both; */
+        }
+        .clear{
+              width: 100%;
+              /* 前面三个块级元素浮动后都不占位，然后这个height没有设置，因此在顶部不显示，所以用clear清除影响后到box底部，将box1推下去 */
+              clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="clear"></div>
+</div> 
+<div class="box1"></div>   
+</body>
+</html>

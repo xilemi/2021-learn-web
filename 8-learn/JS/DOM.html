@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p>爱好</p>
+     <!-- 要点总结
+       如果要读取input的value属性 那么就要设置value属性，不然就是  默认的on
+       而checked属性是表示选中没有 选中为true 没有为false 
+    
+    
+    -->
+        <div id="fav">
+            <input type="checkbox" value="足球">足球
+            <input type="checkbox" value="篮球">篮球
+            <input type="checkbox" value="跑步">跑步
+            <input type="checkbox" value="跳绳">跳绳
+            <input type="checkbox" value="排球">排球
+            <input type="checkbox" value="骑车">骑车
+            <input type="checkbox" value="游泳">游泳
+            <input type="checkbox" value="旅行">旅行
+           
+        </div>
+        <br>
+        <input type="checkbox" id="all">全选
+        <br>
+     <button id="btn1" onclick="checkedAll()">全选</button>
+     <button id="btn2" onclick="unCheckedAll()">全不选</button>
+     <button id="btn3" onclick="fanxuan()">反选</button>
+     <button id="btn4" onclick="sub()">提交</button>
+    <script>
+        // 全选练习
+        //  首先要获取到所有选项
+        var inputs=document.getElementById("fav").children;
+        // 全选函数
+        function checkedAll(){
+            for(var i in inputs){
+                inputs[i].checked=true;
+            }
+            checkAll();
+        }
+        function unCheckedAll(){
+            for(var i=0;i<inputs.length;i++){
+                inputs[i].checked=false;
+            }
+            checkAll();
+        }
+        function fanxuan(){
+            for(var i in inputs){
+                inputs[i].checked=!inputs[i].checked;
+                checkAll();
+            }
+        }
+        function sub(){
+            var checkedItem=[];
+            for(var i in inputs){
+                if(inputs[i].checked){
+                checkedItem[i]=inputs[i].value;
+            }
+            
+            }
+            console.log("你选的是:"+checkedItem);
+            console.log(typeof checkedItem);
+        }
+        // 实现全选框与下面的CheckBox同步功能
+        function getItem(itemId,fun){
+             var item=document.getElementById(itemId);
+             //  点击事件
+             item.onclick=fun;
+        }
+        
+        getItem("all",function(){
+            for(var i in inputs){
+                inputs[i].checked=this.checked;
+            }
+        });
+        // 实现全选了多选，自动勾选全选框
+        for(var i=0;i<inputs.length;i++){
+            // 让每点击一次都会检验一次，先给所有的checkbox添加事件
+            inputs[i].onclick=checkAll;
+            }
+            // 检验是否全选，先让他是全选状态，然后验证，如果发现有没有选中的，立即取消全选状态
+            // 原理就是假设满足，然后出现不满足的情况，立即取消，这样就能够在条件满足时生效，不满足不生效。、
+            // 问题，两种for便利有什么区别。
+        function checkAll(){
+               document.getElementById("all").checked=true;
+               for(var j=0;j<inputs.length;j++){
+                   if(!inputs[j].checked){
+                       document.getElementById("all").checked=false;
+                       break;
+                   }
+               }
+       }
+      for(var i in inputs){
+          console.log(inputs[i]);
+      }
+      for(var j=0;j<inputs.length;j++){
+          console.log(inputs[j]);
+      }
+    </script>
+</body>
+</html>

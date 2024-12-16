@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-model双向绑定数 -->
+    <!-- 文本框 -->
+    <div id="app">
+        <input type="text" v-model='message'>
+        <h2>{{message}}</h2>
+        <!-- 多行文本 -->
+        <textarea  id="" cols="30" rows="10" v-model='message'></textarea>
+        <h2>{{message}}</h2>
+        <!-- 单选按钮 -->
+        <input type="radio" name="" id="" v-model='sex' value="男">男
+        <input type="radio" name="" id="" v-model='sex' value="女">女
+        <h2>您选的性别是{{sex}}</h2>
+        <!-- 复选框 -->
+        <input type="checkbox" name="" id="" value="篮球" v-model='sport'>篮球
+        <input type="checkbox" name="" id="" value="足球"  v-model='sport'>足球
+        <input type="checkbox" name="" id="" value="橄榄球"  v-model='sport'>橄榄球
+        <h2>你选择的运动是{{sport}}</h2>
+        <!-- 选择框 v-model写在selsct里-->
+        <select name="" id="" v-model="star">
+            <option value="章子怡">章子怡</option>
+            <option value="迪丽热巴">迪丽热巴</option>
+            <option value="柳岩">柳岩</option>
+            <option value="张含韵">张含韵</option>
+            <option value="杨幂">杨幂</option>
+        </select>
+        <h2>你选择的明星是：{{star}}</h2>
+        <!-- 表单的修饰符 -->
+        <!-- 当输入内容修改时，不想下面的显示内容立即被修改，使用.lazy 修改完回车提交 -->
+        <input type="text" v-model.lazy='message1'>
+        <h2>这里的修改不会被立即生效:{{message1}}</h2>
+        <!-- v-model双向关联后，会将数据装换为string类型，因此可以使用.number 只能将输入的数字装换为number类型 原本string类型任然是string类型 -->
+        <input type="text" name="" id="" v-model.number='num'>
+        <h2>{{num}}</h2>
+        <h2>{{typeof(num)}}</h2>
+        <!-- 自动过滤首位空白符 在控制台中可以看到 这个字符串的空格是保留的， 加入.trim 可以消除-->
+        <input type="text" v-model.trim='space'>
+        <h2>{{space}}</h2>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        const app =new Vue({
+            el:'#app',
+            data:{
+                message:'文本框',
+                message1:'修饰符lazy',
+                sex:'男',
+                sport:[],
+                star:"迪丽热巴",
+                num:77,
+                space:''
+            }
+        })
+    </script>
+</body>
+</html>

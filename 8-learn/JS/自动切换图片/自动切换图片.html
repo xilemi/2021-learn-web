@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contain{
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+        }
+        #img{
+            width: 1226px;
+            height: 460px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <img src="1.jpg" alt="" id="img">
+    </div>
+    <script>
+        // 定义图片的的数组
+        var imgArr=["1.jpg","2.webp","3.webp"];
+        var img =document.getElementById("img");
+        // 设置自动循环
+        var i=0
+        var scr= setInterval(()=>{
+           img.src=imgArr[i];
+           i++;
+           if(i==3){
+               i=0;
+           }
+        },2000);
+        img.onmouseenter=function(){
+           clearInterval(scr)
+        }
+        img.onmouseleave=function(){
+            setInterval(()=>{
+           i++
+           img.src=imgArr[i];
+           if(i==2){
+               i=0;
+           }
+        },2000)
+        }
+    </script>
+</body>
+</html>

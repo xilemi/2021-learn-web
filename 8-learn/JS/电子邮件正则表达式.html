@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="email">
+    <button onclick="test1()">确认</button>
+    <script>
+        // 验证是否电子邮箱 分析：邮箱@符号前面随机字母数字，@后面随机字母数字，然后. 后面也是随机后缀
+        // 总结 表示一个. 的时候用\.来替代  
+        function test1(){
+        var reg=/^\S*@\w*\.\w*$/g;
+        var txt=document.getElementById("email").value;
+        if(reg.test(txt)){
+           alert("是邮箱");
+        }
+        else{
+            alert("不是邮箱")
+        }
+        }
+    </script>
+</body>
+</html>

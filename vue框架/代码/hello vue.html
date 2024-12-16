@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+    <!-- vuejs是一种响应式的框架，能够将数据与界面分离 -->
+    <div id="app">
+        <h1>{{name}}</h1>
+        <h2>{{message}}</h2>
+        <p>{{first}}</p>
+    </div>
+    <div id="test">
+        <p>{{test}}</p>
+    </div>
+    <script> 
+    var app= new Vue({
+        el:'#app',
+        data:{
+           name:"vue",
+           message:'响应式框架',
+           first:'hello word',
+        }
+    })
+    var test=new Vue({
+        el:'#test',
+        data:{
+            test:"这是个test"
+        }
+    })
+    </script>
+</body>
+</html>

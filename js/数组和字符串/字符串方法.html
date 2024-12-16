@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 定义一个字符串，用字符串方法使他 -->
+    <script>
+        // 定义字符串
+       var str="HELLO WORLD";
+       var str1="hello world";
+      /*  0,返回字符串长度 length
+          console.log(str.length); */
+      /*  1,返回指定位置的字符，从编号0开始，charAt方法 例如返回第4个
+       console.log(str.charAt(4)); */
+         /* 2,返回指定字符的Unicode编码 charCodeAt方法
+        console.log(str.charCodeAt(4));   */
+         /*    3连接两个字符串 concat(stringname)
+        console.log(str1.concat(str));
+        console.log(str1.concat(str).length); */
+         //4,提取界定下标的字符串，substring(),不包含结束位置的字符 一个参数表示开始的位置
+        console.log(str.substring(3,8));//从3到8 不包含8
+        console.log(str.substring(6));//一个参数，则表示开始位置
+        /* 5，用substr来提取，substr(开始位置,指定数目) 一个参数表示开始的位置
+        console.log(str.substr(6));//表示开始的位置，直接取到结尾
+        console.log(str.substr(3,5));//从3开始取，取5个 */
+        //6，用slice
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       .test1,.test2,.test3{
+           width: 777px;
+           height: 777px;
+           border-radius: 50%;
+           background-color: #ef6700;
+           text-align: center;
+       }
+    </style>
+<!--     事件 点击onclick 鼠标按下onmousedown 鼠标释放 onmouseup 鼠标移动 onmousemove 1px激发一次事件
+        鼠标移入 onmouseenter 鼠标移出 onmouseleave
+                onmouseover         onmouseout 可以继承 父元素有 子元素也可以继承 
+                使用方式都是一致的 -->
+    <!-- 三种方式使用 -->
+    <!-- ①<div onclick="js语句"></div>
+    ②<div onclick="调用函数"></div>
+    ③<div onclick="函数表达式法"></div> -->
+    <div class="test1" onclick="console.log('js语句法');">js语句法</div>
+    <div class="test2" onclick="fun();">函数调用法</div>
+    <div class="test3" id="test3">函数表达式法</div>
+    <script>
+        function fun(){
+            console.log('这是调用函数法');
+        }
+        // 第三种方式
+        var test3=document.getElementById('test3');
+        test3.onclick=function(){
+            console.log('这是函数表达式法');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 删除数组中指定元素，并将剩下的元素作为一个新的数组 
+    var arr = [4, 0, 7, 9, 0, 0, 2, 6, 0, 3, 1, 0];
+-->
+<script>
+    var arr = [4, 0, 7, 9, 0, 0, 2, 6, 0, 3, 1, 0];
+    /* 首先确定第一个0的位置，赋值给变量i，然后根据indexof查找不到返回值为-1，查找到返回值为查找到的位置，作为循环条件，然后splice删除数组元素是会改变原数组的，重新将查找到的位置赋值给i,直到找不到为止。*/
+    for(var i=1;i>-1;i=arr.indexOf(0)){
+        arr.splice(i,1);
+    }
+    var arr1=arr;
+    console.log(arr1);
+</script>
+</body>
+</html>

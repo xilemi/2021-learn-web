@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 某个公司要给员工发年终奖，为了奖励老员工，所以工作时间越长，发的越多，规则如下：
+         工作满0年	 发月薪的1倍月薪年终奖，如果月薪大于8000，那么就是发1.2倍
+         工作满1年	 发月薪的1.5倍月薪年终奖，如果月薪大于10000，那么就是发1.7倍
+         工作满2年   甚至更多 发月薪的3倍月薪年终奖，如果月薪大于12000，那么就是发3.2倍 -->
+<script>
+    //    分析：首先进行工作时长进行判断，然后再判断月薪的判断
+    var worktime=prompt("工作满：");
+    var money=prompt("月薪是：");
+    var awards;
+    if(money>0&&worktime>0){
+        if(worktime==0){
+        if(money>8000){
+            awards=1.2*money;
+            document.write("年终奖发："+awards);
+        }
+        else{
+            awards=money;
+            document.write("年终奖发："+awards);
+        }
+    }
+    else if(worktime==1){
+        if(money>10000){
+            awards=1.7*money;
+            document.write("年终奖发："+awards)
+        }
+        else{
+            awards=1.5*money;
+            document.write("年终奖发："+awards);
+        }
+    }
+    else if(worktime>=2){
+        if(money>12000){
+            awards=3.2*money;
+            document.write("年终奖发："+awards);
+        }
+        else{
+            awards=3*money;
+            document.write("年终奖发："+awards);
+        }
+    }
+    }
+    else{
+        document.write("请输入正确的工作年限或月薪");
+    }
+</script>
+</body>
+</html>

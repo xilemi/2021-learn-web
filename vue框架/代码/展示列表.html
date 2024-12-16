@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='item in movies'>{{item}}</li>
+        </ul>
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                movies:["毒液","后会无期","飞驰人生","肖申克的救赎","玩具总动员","飞屋环游记"],
+            }
+        })
+    </script>
+</body>
+</html>

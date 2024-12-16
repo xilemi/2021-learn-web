@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // prototype原型 方法都存储在这里
+        var arr=[1,2,5,67];
+       var arr1=arr.filter((a)=>{
+           return a>1
+       })
+        // 数组的方法 
+        // push向数组最后插入一个或多个元素，返回值为数组长度
+        // pop从数组最后开始删除元素，一次只能删除一个，返回值为删除的元素,没有参数，只能删最后一个
+        // unshift向输入的开头插入一个或多个元素，返回数组长度
+        // shift数组开始删除元素，返回删除元素,没有参数，只能删除第一个。
+        // var result= arr.push(888,999);
+        // var result=arr.pop();
+        // var result=arr.unshift(78,555,999);
+        var result=arr.shift()
+        console.log(result);
+        // 使用构造函数
+        function Person(name,age,height){
+             this.name=name;
+             this.age=age;
+             this.height=height;
+        }
+        Person.prototype.myName=function(){
+            return this.name;
+        }
+        var per1=new Person("xile",19,140);
+        var per2=new Person("xile",14,140);
+        var per3=new Person("xile",12,140);
+        var per4=new Person("xile",30,140);
+        console.log(per1.myName());
+        var perarr=[per1,per2,per3,per4]
+        function age(perarr){
+            var perage=[];
+            for(var i in perarr){
+                if(perarr[i].age>14){
+                    perage.push(perarr[i])
+                }
+            }
+            return perage;
+        }
+        console.log(age(perarr));
+       /*  var a=[7,3,1,0,9,2,99,55,23,12,24,36];
+        console.log(a.length);
+        var b=[];
+        var time=console.time();
+        for(var i=0;i<a.length;i++){
+            for(var j=0;j<a.length;j++){
+                for(var k=0;k<a.length;k++){
+                    if(a[i]==a[j]+2*a[k]&&a[i]!=a[j]&&a[j]!=a[k]){
+                       var c=[];
+                       c.push(a[i],a[j],a[k]);
+                       b.push(c);     
+                    }
+                }
+            }
+        }
+        console.timeEnd(time);
+        console.log(b); */
+        // foreach遍历数组，foreach中的函数有三个参数，第一个函数，第二个索引，三个数组对象,直接写箭头函数也行
+        // ()=>{}  括号点放参数 ，大括号内放函数体  如果只有一个参数也可以不要括号 直接写参数名 
+        arr.forEach((value,index,obj) => {
+            console.log(value,index,obj);
+        });
+        // 数组排序 如果有相等的值怎么排序 使用 sort方法进行排序，他的规则是Unicode编码进行排序的，在数字排序上会有错误的。
+        // 我们可以自己写一个函数，来定义排序的规则，以数字为例，a b两个参数 ，如果返回>0的值 则交换位置 ，<0不交换位置，=0表示两个值相等
+        var num =[9,8,1,4,11,9,67,2,11];
+        var result = num.sort((a,b)=>{
+            /* if(a>b){
+               return 1;
+            }
+            else if(a<b){
+                return -1;
+            }
+            else{
+                return 0;
+            } */
+            // 升序排列 前面大就交换位置 ，小的在前 升序
+            // return a-b
+            // 降序排列 后面打交换位置 大的在前 降序
+            return b-a;
+        })
+        // arguments 将传入的实参收集 起来，作为一个数组
+        function agr(){
+            return arguments.callee;
+        }
+        console.log(agr(1,7,4,23,2,6,"askdsgfjsd"));
+    </script>
+</body>
+</html>

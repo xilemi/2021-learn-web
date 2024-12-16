@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 工厂方法创建对象
+       function mainfun(name,age,gender){
+           var obj=new Object();
+           obj.name=name;
+           obj.age=age;
+           obj.gender=gender
+           obj.myName=function(){
+               return this.name
+           };
+           return obj;
+        }
+        function createDog(name,age) {
+           var obj={
+               name:name,
+               age:age,
+               myAge:function(){
+                   return this.age;
+               }
+           }  
+        //    函数返回obj对象才能在后面将对象给别的变量
+           return obj; 
+        }
+        var obj1=mainfun("xile",19,"男");
+        var obj2=mainfun("hhh",20,"女");
+        console.log(obj1);
+        console.log(obj1.myName());
+        obj2.myName()
+        
+        var obj3=createDog("欢欢",20);
+        console.log(obj3);
+         console.log(obj3.myAge());
+        // 构造函数 构造函数一般要使用大写开头来命名，调用构造函数使用 new 在构造函数内使用this 指向这个对象
+        function Women(name,age,weight){
+            this.name=name;
+            this,age=age;
+            this.weight=weight;
+            this.myWeight=()=>{
+                return this.weight;
+            }
+        }
+        // 使用构造函数
+        var women1=new Women("xiaoxi",20,70);
+       console.log( women1.myWeight());
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .test{
+        color: black;
+        font-size: 50px;
+    }
+    .test1{
+        color: chartreuse;
+        font-size: 300px;
+    }
+</style>
+<body>
+    <div id="app">
+        <!-- 这里的{test:false,test1:true}对象太过于繁琐 -->
+        <!-- 可以以对象，方法的形式绑定 -->
+        <!-- <p v-bind:class="isTrue ? msg:'test1'">{{message}}</p> -->
+        <!-- 将isTrue改成一个函数返回值呢？ -->
+        <p v-bind:class="{test:is,test1:}">{{message}}</p>
+        <!-- <button v-on:click="changeColor">改变颜色</button> -->
+    </div>
+    <script src="../vue/vue.js"></script>
+    <script>
+        var app= new Vue({
+            el:'#app',
+            data:{
+                message:'你好啊',
+                isTrue:true,
+                msg:"test",
+                judges:"x",
+            },
+            methods: {
+                changeColor(){
+                    console.log("gaibainyane ");
+                    this.isTrue=!this.isTrue;
+                },
+                
+        },
+           computed:{
+            judges(a,b){
+                    if(a>b){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+            },   
+        }
+        })
+        // prompt得到的数据为string类型
+        var a=parseInt(prompt("请输入a"));
+        var b=parseInt(prompt("请输入b"));
+        /* function judges(a,b){
+            var d=a + b;
+            console.log(d);
+            if(d>10){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }  */
+        // var x=judges(a,b);
+        
+        console.log(app.x);
+    </script>
+   <!--  <script>
+        var i=0;
+        var app=new Vue({
+            el:'#app',
+            data:{
+               message:'你好啊',
+               url:['https://www.mi.com/index.html','https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/808804e4f58a25704f60bdc5b5e75cfd.jpg?w=2452&h=920']
+            },
+        }) -->
+    </script>
+</body>
+</html>

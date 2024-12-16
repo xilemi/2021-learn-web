@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 利用边框画三角形，首先要设置盒子的宽高，才会看到边框，如果要上箭头，则将上边框设置为0px，左右边框设置为透明 */
+        .box1{
+            width: 0;
+            height: 0;
+            border-top: 0px solid #ef6700;
+            border-bottom: 10px solid #ef6700;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

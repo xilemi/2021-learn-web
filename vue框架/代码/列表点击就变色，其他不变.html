@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navdf{
+            font-size: 30px;
+            color: bisque;
+            list-style: none;
+        }
+        .navnew{
+            font-size: 50px;
+            color: #ef6700;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!--  
+        1,首先实现一个列表
+        2,绑定点击事件,点击事件开始传值
+        3,class属性绑定 利用index与默认值是否相对判断真假，来确定class是否生效
+     -->
+     <div id="app">
+         <ul>
+             <li v-for='(item,index) in books' class='navdf':class='getStyle(index)' @click='change(index)'>{{index+' '+item}}</li>
+         </ul>
+     </div>
+<script src="../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            books:['linux','ubuntu','centos','win','macos'],
+            a:-1,
+        },
+        methods: {
+            change(index){
+                this.a=index;
+            },
+            getStyle(index){
+                if(this.a==index){
+                    // class需要获取css类名，因此直接返回类名就行了
+                    return 'navnew'
+                }
+            }
+        },
+    })
+</script>
+</body>
+</html>

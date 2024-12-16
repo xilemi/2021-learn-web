@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格与表单套嵌</title>
+</head>
+<body>
+<!--value placeholder 属性是文本框的提示，并且输入文字，光标在最前面-->
+<form action="#" name="form2" method="get">
+    <table border="1" cellspacing="0" width="500">
+        <tr align="center">
+            <td width="100">姓名：</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr align="center">
+            <td>密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr align="center">
+            <td>确认密码：</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr align="center">
+            <td>性别：</td>
+<!--性别单选必须加入name属性，不然会出现选择其中一个，另外的不会退选-->
+            <td>
+                <label for="nan"><input type="radio" id="nan" name="sex">男</label>
+                <label for="nv"><input type="radio" id="nv" name="sex">女</label>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>爱好：</td>
+            <td>
+                <label for="eat"><input type="checkbox" id="eat">吃饭</label>
+                <label for="play"><input type="checkbox" id="play">玩耍</label>
+                <label for="relax"><input type="checkbox" id="relax">休息</label>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>城市：</td>
+            <td>
+                <select name="city" id="1">
+                    <option value="">武汉</option>
+                    <option value="" selected>荆州</option>
+                    <option value="">恩山</option>
+                    <option value="">宜昌</option>
+                </select>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>自我介绍：</td>
+<!--            文本域用textarea标记-->
+            <td>
+                <textarea name="myself" id="2" cols="30" rows="10" > 随便写点？？？</textarea>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2"><button type="submit">立即注册</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

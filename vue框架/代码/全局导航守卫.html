@@ -1,0 +1,10 @@
+<!-- 全局导航守卫的实现
+第一种
+给每一个组件添加生命周期 created生命周期
+第二种
+在路由配置文件里调用 router.beforeEach((from,to,next)=>{
+    document.title=to.matched[0].mate.title
+    当设置了默认主页是添加matched[0]
+    next()
+})
+ -->

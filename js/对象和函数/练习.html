@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 5、定义函数打印1-100之间偶数的个数和平均数? -->
+    <!-- <script>
+        // 
+        var num=0;//计数偶数
+        var sum=0;//偶数的和
+        var avgnum=0;
+        function count(){
+            for(var i=1;i<=100;i++){
+                if(i%2==0){
+                   num++;
+                   sum+=i;
+                }
+            }
+            console.log('偶数的个数为:'+num);
+        }
+        function avg(){
+            avgnum=sum/num;
+            console.log('平均数为:'+avgnum);
+        }
+        count();
+        avg();
+    </script> -->
+    <!-- 6、定义函数判断一个数的奇偶性 -->
+    <!-- <script>
+        // 输入一个数
+        var num=parseInt(prompt("请输入一个数"));
+        var judgement=function(num){
+            if(num%2==0){
+                console.log("是偶数");
+            }else{
+                console.log("是奇数");
+            }
+        }
+        judgement(num);
+    </script> -->
+    <!-- 7、定义函数判断是否为闰年，然后打印2000-2500之间所有的闰年 -->
+    <!-- <script>
+        // 首先输入年份
+        var leapYear=function(year){
+            if(year%4===0&&year%100!==0||year%400===0){
+                console.log(year);
+            }
+        }
+        for(var year=2000;year<=2500;year++){
+            leapYear(year);
+        }
+    </script> -->
+    <!-- 8、定义函数判断是否为水仙花数，然后打印所有水仙花数 -->
+    <!-- 水仙花数的定义是每个数位上的数字的三次方的和等于这个数 并且水仙花数都是三位数 -->
+    <!-- <script>
+         function ppdi(){
+             for(var i=1;i<10;i++){
+                 for(var j=0;j<10;j++){
+                     for(var k=0;k<10;k++){
+                         var sum=i*i*i+j*j*j+k*k*k;
+                         var num=100*i+j*10+k;
+                        if(sum==num){
+                            console.log(num);
+                        }
+                     }
+                 }
+             }
+         }
+         ppdi();
+    </script> -->
+    <!-- 9、定义函数，功能是判断一个数是否为完数 -->
+    <!-- 完数的定义，一个数的所有真因数的和等于这个数，那么就是完数 -->
+    <!-- 首先获取因数，能被整除的就是因数，从1开始遍历，到这个数减一，出去本身 -->
+   <!--  <script>
+        // 输入一个数
+        var num=parseInt(prompt("请输入一个数"));
+        function perfectNum(num){
+            // 得到真因数
+            var sum=0;
+            for(var i=1;i<num;i++){
+                if(num%i==0){
+                    sum+=i;
+                }
+            }
+            if(sum==num){
+                console.log("是完数");
+            }else{
+                console.log("不是完数");
+            }
+        }
+        perfectNum(num);
+    </script> -->
+    <!-- 10、定义函数判断三个数最大值 -->
+    <script>
+        var a=parseFloat(prompt("请输入第一个数"));
+        var b=parseFloat(prompt("请输入第二个数"));
+        var c=parseFloat(prompt("请输入第三个数"));
+        console.log("请输入第一个数是"+a);
+        console.log("请输入第二个数是"+b);
+        console.log("请输入第三个数是"+c);
+        function max(a,b,c){
+            if(a>b&&a>c){
+                    console.log('最大值是'+a);
+                }
+                else if(a<c&&b<c){
+                    console.log('最大值是'+c);
+                }
+            else if(b>c&&b>a){
+                    console.log('最大值是'+b);
+            }
+        }
+        max(a,b,c);
+    </script>
+</body>
+</html>
